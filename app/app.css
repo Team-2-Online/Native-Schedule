@@ -1,16 +1,32 @@
-﻿.title {
-    font-size: 30;
+﻿.eventsCount {
+    font-size: 33;
     horizontal-align: center;
+    text-align: center;
+    white-space: pre-wrap;
     margin: 20;
 }
 
 button {
-    font-size: 42;
-    horizontal-align: center;
+    font-size: 16;
+    horizontal-align: right;
+    display: inline-block;
+    background-color: white;
+    font-style: normal;
+    border: none;
+}
+
+.buttonContainer{
+    horizontal-align: right;
+    padding-block-end: 20;
 }
 
 .message {
     font-size: 20;
     color: #284848;
     horizontal-align: center;
+}
+
+ActionBar {
+    background-color:  #990099;
+    color: white;
 }

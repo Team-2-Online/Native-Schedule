@@ -1,7 +1,28 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
-  <StackLayout>
-    <Label text="Tap the button" class="title"/>
-    <Button text="TAP" tap="{{ tapAction }}" />
-    <Label text="{{ message }}" class="message" textWrap="true"/>
-  </StackLayout>
+ <Page.actionBar>
+      <ActionBar title="Scheduler" android.icon="res://icon" android.iconVisibility="always">
+       <NavigationButton android.systemIcon="ic_menu_back"/>
+       </ActionBar>
+  </Page.actionBar>
+  <GridLayout  columns="*" rows="120, 50, *, 50">
+  
+    <Label text="You have no events added for today" class="eventsCount" textWrap="true"  row="0"/>
+    <StackLayout orientation="horizontal" class="buttonContainer"  row="1">
+        <Button text="Add new" tap="{{ tapAction }}" autocapitalizationType="none"/>
+        <Button text="Go to events" tap="{{ tapAction }}" autocapitalizationType="none"/>
+    </StackLayout>
+    
+    <GridLayout columns="*, *" rows="*, *"  row="2" style.backgroundColor="white" >
+        <Image row="0" col="0" src="res://note" stretch="fill" />
+            <Image row="1" col="1" src="res://note" stretch="fill" />
+        <Image row="1" col="0" src="res://note" stretch="fill"/>
+        <Image row="0" col="1" src="res://note" stretch="fill"/>         
+    </GridLayout>
+  
+    <StackLayout height="50" orientation="horizontal" class="buttonContainer" backgroundColor="white"  row="3">
+        <Button text="Add new" tap="{{ tapAction }}" autocapitalizationType="none"/>
+        <Button text="Go to notes" tap="{{ tapAction }}" autocapitalizationType="none"/>
+     </StackLayout>    
+
+  </GridLayout>
 </Page>
