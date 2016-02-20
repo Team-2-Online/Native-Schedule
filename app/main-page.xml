@@ -8,8 +8,8 @@
   
     <Label text="You have no events added for today" class="eventsCount" textWrap="true"  row="0"/>
     <StackLayout orientation="horizontal" class="buttonContainer"  row="1">
-        <Button text="Add new" tap="{{ tapAction }}" autocapitalizationType="none"/>
-        <Button text="Go to events" tap="{{ tapAction }}" autocapitalizationType="none"/>
+        <Button text="Add new" tap="{{ tapAction }}" />
+        <Button text="Go to events" tap="{{ tapAction }}" />
     </StackLayout>
     
     <GridLayout columns="*, *" rows="*, *"  row="2" style.backgroundColor="white" >
@@ -20,8 +20,8 @@
     </GridLayout>
   
     <StackLayout height="50" orientation="horizontal" class="buttonContainer" backgroundColor="white"  row="3">
-        <Button text="Add new" tap="{{ tapAction }}" autocapitalizationType="none"/>
-        <Button text="Go to notes" tap="{{ tapAction }}" autocapitalizationType="none"/>
+        <Button text="Add new" tap="{{ tapAction }}" />
+        <Button text="Go to notes" tap="{{ navigateToNotesPage }}" />
      </StackLayout>    
 
   </GridLayout>
