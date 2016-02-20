@@ -31,7 +31,7 @@ var HomePageModel = (function (_super) {
 				backstackVisible: true,
                 animated: true,
                 navigationTransition: {
-                    transition: "curl"
+                    transition: "fade"
                 },
 			};
 
