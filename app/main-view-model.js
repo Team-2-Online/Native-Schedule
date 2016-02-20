@@ -14,9 +14,9 @@ var HelloWorldModel = (function (_super) {
         this.set("message", this.counter + " taps left");
     }
     HelloWorldModel.prototype.tapAction = function () {
-      //Example use of db
-      liteDb.createTable(exampleModel);
-      //End of example use
+        //Example use of db
+        liteDb.createTable(exampleModel);
+        //End of example use
         this.counter--;
         if (this.counter <= 0) {
             this.set("message", "Hoorraaay! You unlocked the NativeScript clicker achievement!");
