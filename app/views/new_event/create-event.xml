@@ -1,0 +1,31 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onLoaded">
+ <Page.actionBar>
+      <ActionBar title="Add new event" >
+       <NavigationButton android.systemIcon="ic_menu_back"/>
+       </ActionBar>
+  </Page.actionBar>
+    <TabView selectedIndexChanged="indexChange" color="white" tabsBackgroundColor="#990099" selectedColor="white" >
+        <TabView.items>
+            
+            <TabViewItem title="Date and time">
+                <TabViewItem.view>
+                    <StackLayout>
+                       <DatePicker day="{{ eventDay }}" month="{{ eventMonth }}" year="{{ eventYear }}"></DatePicker>
+                       <TimePicker hour="{{ eventHour }}" minute="{{ eventMinutes }}"></TimePicker>
+                    </StackLayout>
+                </TabViewItem.view>
+            </TabViewItem>       
+            
+            <TabViewItem title="Info">
+                <TabViewItem.view>
+                <GridLayout rows="50,*,50" columns="*">
+                      <TextField row="0" hint="Event title" text="{{ eventTitle }}" />
+                        <TextView row="1" hint="Event description" text="{{ eventDescription }}" editable="true" height="100%"/>   
+                        <Button row="2" text="Save event" tap="saveEvent" width="100%" class="btn-big"/>
+                </GridLayout>                  
+                </TabViewItem.view>
+            </TabViewItem>
+            
+        </TabView.items>
+    </TabView>
+</Page>

@@ -54,3 +54,43 @@ var liteDb = require(__base + "common/SQLiteDatabase");
 * getAllFromTable(table_name) - returns all records
 * deleteById(table_name, id) - deletes the entry at assigned id
 * you can use [the official documentation of the tns package](https://github.com/NathanaelA/nativescript-sqlite) for some other actions.
+
+# Example code
+```javascript
+var liteDb = require("common/SQLiteDatabase"); //use __base + "data-models/example" if you keep this architecture
+var exampleModel = require("data-models/example");
+
+var somewhere = function () {
+  liteDb.getInstance(); //If you want to use the official documentation api
+  
+  liteDb.createTable(exampleModel);
+
+  var record = {
+    name: "'Some name'",
+    year: 2015
+  };
+  liteDb.insertRecord(exampleModel.tableName, record);
+
+  var dataToInsert = [
+    {
+      name: "'Some name'",
+      year: 2015
+    },
+    {
+      name: "'Some name2'",
+      year: 2015
+    },
+    {
+      name: "'Some name3'",
+      year: 2015
+    }
+  ];
+  liteDb.insertMany(exampleModel.tableName, dataToInsert);
+
+  var searched = liteDb.findById(exampleModel.tableName, 5);
+  
+  liteDb.deleteById(exampleModel.tableName, 5);
+
+  var aLotOfRecords = liteDb.getAllFromTable(exampleModel.tableName);
+};
+```
