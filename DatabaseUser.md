@@ -34,7 +34,7 @@ fieldsSchema.push({
 ```javascript
 var liteDb = require(__base + "common/SQLiteDatabase");
 ```
-* you can export the data-model and export it as well
+* you can export the data-model and require it as well
 
 3. API
 
