@@ -34,19 +34,21 @@ fieldsSchema.push({
 ```javascript
 var liteDb = require(__base + "common/SQLiteDatabase");
 ```
-* you can export the data-model and export it as well
+* you can export the data-model and require it as well
 
 3. API
 
 * getInstance() - will provide singleton instance
 * createTable(data_model) - will create table if not exist with assigned data model
 * insertRecord(table_name, {}) - will add single record in db. Look at example (for the string value!)
-  ```javascript
+
+```javascript
   {
     name: "'Some name'",
     year: 2016
   }
-  ```
+```
+  
 * insertMany(table_name, [{},{}]) - uses foreach over array with objects described above
 * findById(table_name, id) - returns the found record at assigned id. Returns `null` if nothing found
 * getAllFromTable(table_name) - returns all records
