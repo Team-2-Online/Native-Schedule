@@ -1,15 +1,123 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded"
     xmlns:FAB="nativescript-floatingactionbutton">
     <Page.actionBar>
-        <ActionBar title="Events" android.icon="res://icon" android.iconVisibility="always">
+        <ActionBar title="Events">
             <!--<ActionBar.actionItems>
                 <ActionItem ios.systemIcon="4" android.systemIcon = "ic_menu_add" tap="{{navigateToAddEventPage}}" />
             </ActionBar.actionItems>-->
             <NavigationButton android.systemIcon="ic_menu_back"/>
         </ActionBar>
     </Page.actionBar>
+    <GridLayout rows="" columns="">
+        
+   
     <TabView selectedIndexChanged="indexChange" color="white" tabsBackgroundColor="#990099" selectedColor="white" id="tab-view-test" >
-        <TabView.items>            
+        <TabView.items>           
+         
+            <TabViewItem title="Today">
+                <TabViewItem.view>
+                    <GridLayout rows="auto, 75, *" columns="*"  class="main-container">      
+                        <Label row="1" text="Today date" textWrap="true" color="#990099" horizontalAlignment="center" class="tab-header" />
+                                            
+                        <ScrollView row="2">                     
+                            <ListView items="{{ allEvents() }}" 
+                                loaded="onLoaded" 
+                                itemLoading="onItemLoading" 
+                                itemTap="onItemTap"
+                                separatorColor="transparent"
+                                rowHeight="45"  
+                                                                
+                                >
+                                <ListView.itemTemplate >       
+                                <StackLayout>  
+                                    <StackLayout orientation="horizontal" class="item-row" height="40" >
+                                        <Label text="{{ eventTitle }}" textWrap="true" color="black"  verticalAlignment="bottom" />
+                                        <Label text="HUC" textWrap="true" color="black"  verticalAlignment="bottom"  />
+                                    </StackLayout> 
+                                    <Border borderRadius="" borderWidth="5" borderColor="#990099" width="100%" height="3">
+                                    </Border>
+                                </StackLayout>   
+                                </ListView.itemTemplate>
+                            </ListView>                               
+                        
+                            </ScrollView>  
+                            <!--<FAB:fab tap="{{navigateToAddEventPage}}"
+                                row="2"
+                                icon="res://icon"
+                                rippleColor="#f1f1f1"
+                                class="fab-button" />-->
+                    </GridLayout> 
+                </TabViewItem.view>               
+            </TabViewItem>
+            
+            <TabViewItem title="Tomorrow">
+                <TabViewItem.view>
+                    <GridLayout rows="auto, 75, *" columns="*"  class="main-container">                       
+                        <ScrollView row="2">                     
+                            <ListView items="{{ allEvents() }}" 
+                                loaded="onLoaded" 
+                                itemLoading="onItemLoading" 
+                                itemTap="onItemTap"
+                                separatorColor="transparent"
+                                rowHeight="45"  
+                                                                
+                                >
+                                <ListView.itemTemplate >       
+                                <StackLayout>  
+                                    <StackLayout orientation="horizontal" class="item-row" height="40" >
+                                        <Label text="{{ eventTitle }}" textWrap="true" color="black"  verticalAlignment="bottom" />
+                                        <Label text="HUC" textWrap="true" color="black"  verticalAlignment="bottom"  />
+                                    </StackLayout> 
+                                    <Border borderRadius="" borderWidth="5" borderColor="#990099" width="100%" height="3">
+                                    </Border>
+                                </StackLayout>   
+                                </ListView.itemTemplate>
+                            </ListView>                               
+                        
+                            </ScrollView>  
+                            <!--<FAB:fab tap="{{navigateToAddEventPage}}"
+                                row="2"
+                                icon="res://icon"
+                                rippleColor="#f1f1f1"
+                                class="fab-button" />-->
+                    </GridLayout> 
+                </TabViewItem.view>
+            </TabViewItem>
+            
+            <TabViewItem title="This week">
+                <TabViewItem.view>
+                    <GridLayout rows="auto, 75, *" columns="*"  class="main-container">                       
+                        <ScrollView row="2">                     
+                            <ListView items="{{ allEvents() }}" 
+                                loaded="onLoaded" 
+                                itemLoading="onItemLoading" 
+                                itemTap="onItemTap"
+                                separatorColor="transparent"
+                                rowHeight="45"  
+                                                                
+                                >
+                                <ListView.itemTemplate >       
+                                <StackLayout>  
+                                    <StackLayout orientation="horizontal" class="item-row" height="40" >
+                                        <Label text="{{ eventTitle }}" textWrap="true" color="black"  verticalAlignment="bottom" />
+                                        <Label text="HUC" textWrap="true" color="black"  verticalAlignment="bottom"  />
+                                    </StackLayout> 
+                                    <Border borderRadius="" borderWidth="5" borderColor="#990099" width="100%" height="3">
+                                    </Border>
+                                </StackLayout>   
+                                </ListView.itemTemplate>
+                            </ListView>                               
+                        
+                            </ScrollView>  
+                            <!--<FAB:fab tap="{{navigateToAddEventPage}}"
+                                row="2"
+                                icon="res://icon"
+                                rippleColor="#f1f1f1"
+                                class="fab-button" />-->
+                    </GridLayout> 
+                </TabViewItem.view>
+            </TabViewItem>
+            
             <TabViewItem title="All Events">
                 <TabViewItem.view>
                     <GridLayout rows="auto, 75, *" columns="*"  class="main-container">                       
@@ -35,15 +143,17 @@
                             </ListView>                               
                         
                             </ScrollView>  
-                            <FAB:fab tap="{{navigateToAddEventPage}}"
-                                row="2"
-                                icon="res://icon"
-                                rippleColor="#f1f1f1"
-                                class="fab-button" />
+                          
                     </GridLayout> 
                 </TabViewItem.view>
             </TabViewItem>
+            
         </TabView.items>
     </TabView>
-
+      <FAB:fab tap="{{navigateToAddEventPage}}"
+                                row="2"
+                                icon="res://add"
+                                rippleColor="#f1f1f1"
+                                class="fab-button" />
+ </GridLayout>
 </Page>
