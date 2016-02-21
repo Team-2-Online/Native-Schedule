@@ -1,4 +1,4 @@
-﻿.eventsCount {
+.eventsCount {
     font-size: 33;
     horizontal-align: center;
     text-align: center;
@@ -32,11 +32,17 @@ ActionBar {
 }
 
 .btn-big{
-  background-color:  #990099;
+    background-color:  #990099;
     color: white;
 }
 
 TabViewItem{
-      background-color:  #990099;
+    background-color:  #990099;
     color: white;
+}
+TextField{
+    color: #000;
+}
+TextView{
+    color: #000;
 }

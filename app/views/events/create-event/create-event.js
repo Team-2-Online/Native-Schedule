@@ -37,8 +37,9 @@ var pageModules = (function() {
          saveEvent: function() {
 
             // TODO: do something with the data
-            console.log(model.eventHour)
-            console.log(model.eventMinutes)
+            console.log(JSON.stringify(model, null, 4));
+            //console.log(model.eventHour)
+            //console.log(model.eventMinutes)
 
         }
 
