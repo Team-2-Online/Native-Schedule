@@ -5,24 +5,24 @@
        </ActionBar>
   </Page.actionBar>
   <GridLayout  columns="*" rows="120, 50, *, 50">
-  
+
     <Label text="You have no events added for today" class="eventsCount" textWrap="true"  row="0"/>
     <StackLayout orientation="horizontal" class="buttonContainer"  row="1">
         <Button text="Add new" tap="{{ tapAction }}" />
-        <Button text="Go to events" tap="{{ tapAction }}" />
+        <Button text="Go to events" tap="{{ navigateToEventsPage }}" />
     </StackLayout>
-    
+
     <GridLayout columns="*, *" rows="*, *"  row="2" style.backgroundColor="white" >
         <Image row="0" col="0" src="res://note" stretch="fill" />
             <Image row="1" col="1" src="res://note" stretch="fill" />
         <Image row="1" col="0" src="res://note" stretch="fill"/>
-        <Image row="0" col="1" src="res://note" stretch="fill"/>         
+        <Image row="0" col="1" src="res://note" stretch="fill"/>
     </GridLayout>
-  
+
     <StackLayout height="50" orientation="horizontal" class="buttonContainer" backgroundColor="white"  row="3">
         <Button text="Add new" tap="{{ tapAction }}" />
         <Button text="Go to notes" tap="{{ navigateToNotesPage }}" />
-     </StackLayout>    
+     </StackLayout>
 
   </GridLayout>
 </Page>
