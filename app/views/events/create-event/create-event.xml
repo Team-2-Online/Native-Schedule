@@ -1,10 +1,14 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onLoaded">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onLoaded"
+    xmlns:FAB="nativescript-floatingactionbutton">>
     <Page.actionBar>
         <ActionBar title="Add new event" >
             <NavigationButton android.systemIcon="ic_menu_back"/>
         </ActionBar>
     </Page.actionBar>
-    <TabView selectedIndexChanged="indexChange" color="white" tabsBackgroundColor="#990099" selectedColor="white" >
+    <GridLayout rows="*" columns="*">
+        
+
+    <TabView row="1" selectedIndexChanged="indexChange" color="white" tabsBackgroundColor="#990099" selectedColor="white" >
         <TabView.items>
 
             <TabViewItem title="Date and time">
@@ -18,13 +22,21 @@
 
             <TabViewItem title="Info">
                 <TabViewItem.view>
-                    <GridLayout rows="50,*,50" columns="*">
+                    <GridLayout rows="50,*" columns="*">
                         <TextField row="0" hint="Event title" text="{{ eventTitle }}" />
                         <TextView row="1" hint="Event description" text="{{ eventDescription }}" editable="true" height="100%"/>
-                        <Button row="2" text="Save event" tap="saveEvent" width="100%" class="btn-big"/>
+                 
                     </GridLayout>
                 </TabViewItem.view>
             </TabViewItem>
         </TabView.items>
     </TabView>
+    
+        <FAB:fab tap="saveEvent"
+                                row="1"
+                                icon="res://save"
+                                rippleColor="#f1f1f1"
+                                class="fab-button" />
+    
+    </GridLayout>
 </Page>

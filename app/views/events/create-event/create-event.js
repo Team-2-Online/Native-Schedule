@@ -31,7 +31,10 @@ var pageModules = (function() {
         onLoaded: function(args) {
             var page = args.object;
 
+
             page.bindingContext = model;
+            model.eventTitle = "";
+            model.eventDescription = "";
             
 
             topmost = frameModule.topmost();
