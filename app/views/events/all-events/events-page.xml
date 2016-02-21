@@ -1,23 +1,49 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded"
+    xmlns:FAB="nativescript-floatingactionbutton">
     <Page.actionBar>
         <ActionBar title="Events" android.icon="res://icon" android.iconVisibility="always">
-            <ActionBar.actionItems>
+            <!--<ActionBar.actionItems>
                 <ActionItem ios.systemIcon="4" android.systemIcon = "ic_menu_add" tap="{{navigateToAddEventPage}}" />
-            </ActionBar.actionItems>
+            </ActionBar.actionItems>-->
             <NavigationButton android.systemIcon="ic_menu_back"/>
         </ActionBar>
     </Page.actionBar>
-    <ScrollView>
-        <ListView items="{{ allEvents() }}">
-            <ListView.itemTemplate>
-                <Label text="{{ eventTitle }}" textWrap="true" class="title" />
-            </ListView.itemTemplate>
-        </ListView>
-        <!-- <GridLayout columns="*, *" rows="*, *"  style.backgroundColor="white" >
-        <Image row="0" col="0" src="res://note" stretch="fill" />
-        <Image row="1" col="1" src="res://note" stretch="fill" />
-        <Image row="1" col="0" src="res://note" stretch="fill"/>
-        <Image row="0" col="1" src="res://note" stretch="fill"/>
-    </GridLayout> -->
-</ScrollView>
+    <TabView selectedIndexChanged="indexChange" color="white" tabsBackgroundColor="#990099" selectedColor="white" id="tab-view-test" >
+        <TabView.items>            
+            <TabViewItem title="All Events">
+                <TabViewItem.view>
+                    <GridLayout rows="auto, 75, *" columns="*"  class="main-container">                       
+                        <ScrollView row="2">                     
+                            <ListView items="{{ allEvents() }}" 
+                                loaded="onLoaded" 
+                                itemLoading="onItemLoading" 
+                                itemTap="onItemTap"
+                                separatorColor="transparent"
+                                rowHeight="45"  
+                                                                
+                                >
+                                <ListView.itemTemplate >       
+                                <StackLayout>  
+                                    <StackLayout orientation="horizontal" class="item-row" height="40" >
+                                        <Label text="{{ eventTitle }}" textWrap="true" color="black"  verticalAlignment="bottom" />
+                                        <Label text="HUC" textWrap="true" color="black"  verticalAlignment="bottom"  />
+                                    </StackLayout> 
+                                    <Border borderRadius="" borderWidth="5" borderColor="#990099" width="100%" height="3">
+                                    </Border>
+                                </StackLayout>   
+                                </ListView.itemTemplate>
+                            </ListView>                               
+                        
+                            </ScrollView>  
+                            <FAB:fab tap="{{navigateToAddEventPage}}"
+                                row="2"
+                                icon="res://icon"
+                                rippleColor="#f1f1f1"
+                                class="fab-button" />
+                    </GridLayout> 
+                </TabViewItem.view>
+            </TabViewItem>
+        </TabView.items>
+    </TabView>
+
 </Page>
