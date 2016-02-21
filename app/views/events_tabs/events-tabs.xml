@@ -1,0 +1,59 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onLoaded"
+        xmlns:FAB="nativescript-floatingactionbutton">
+ <Page.actionBar>
+      <ActionBar title="MY EVENTS" >
+       <NavigationButton android.systemIcon="ic_menu_back"/>
+       </ActionBar>
+  </Page.actionBar>
+    <TabView selectedIndexChanged="indexChange" color="white" tabsBackgroundColor="#990099" selectedColor="white" >
+        <TabView.items>
+            
+            <TabViewItem title="Today">
+                <TabViewItem.view>
+                    <GridLayout rows="auto, 75, *" columns="*"  >
+                        <Label row="1" text="Some date" textWrap="true" color="#990099" horizontalAlignment="center" class="tab-header" />    
+                            <ScrollView row="2">                     
+                                <ListView items="{{ someEvents }}" 
+                                    loaded="onLoaded" 
+                                    itemLoading="onItemLoading" 
+                                    itemTap="onItemTap"
+                                    separatorColor="transparent"
+                                    rowHeight="45"                                
+                                    >
+                                    <ListView.itemTemplate>       
+                                    <StackLayout>  
+                                        <StackLayout orientation="horizontal" class="item-row" height="40" >
+                                            <Label text="{{ $value.dateTime }}" textWrap="true" color="black"  verticalAlignment="bottom" />
+                                            <Label text="{{ $value.title }}" textWrap="true" color="black"  verticalAlignment="bottom"  />
+                                        </StackLayout> 
+                                        <Border borderRadius="" borderWidth="5" borderColor="#990099" width="100%" height="3">
+                                        </Border>
+                                    </StackLayout>   
+                                    </ListView.itemTemplate>
+                                </ListView>                               
+                            
+                             </ScrollView>  
+                                 <FAB:fab tap="fabTap"
+                                    row="2"
+                                    icon="res://icon"
+                                    rippleColor="#f1f1f1"
+                                    class="fab-button" />
+                    </GridLayout> 
+                </TabViewItem.view>
+            </TabViewItem>       
+            
+            <TabViewItem title="Tomorrow">
+                <TabViewItem.view>
+                    <GridLayout rows="150, 150, 150" columns="*">
+                        <Label row="0"  col="0" text="{{ eventTitle }}" color="black" />
+                        <Label row="1"  col="0"  text="{{ eventTitle }}" color="black" />   
+                        
+                    </GridLayout>                  
+                </TabViewItem.view>
+            </TabViewItem>
+            
+           
+            
+        </TabView.items>
+    </TabView>
+</Page>

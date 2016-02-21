@@ -1,9 +1,9 @@
-global.__base = __dirname + '/';
-var application = require("application");
-application.start({ moduleName: "main-page" });
-
-
+// global.__base = __dirname + '/';
 // var application = require("application");
-// application.mainEntry = "views/new_event/create-event";
-// var tabViewModule = require("ui/tab-view");
-// application.start();
+// application.start({ moduleName: "main-page" });
+
+
+var application = require("application");
+application.mainEntry = "views/events_tabs/events-tabs";
+var tabViewModule = require("ui/tab-view");
+application.start();
