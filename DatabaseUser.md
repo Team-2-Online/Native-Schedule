@@ -48,10 +48,10 @@ var liteDb = require(__base + "common/SQLiteDatabase");
     year: 2016
   }
 ```
-  
+
 * insertMany(table_name, [{},{}]) - uses foreach over array with objects described above
 * findById(table_name, id) - returns the found record at assigned id. Returns `null` if nothing found
-* getAllFromTable(table_name) - returns all records
+* getAllFromTable(data_model) - returns all records
 * deleteById(table_name, id) - deletes the entry at assigned id
 * you can use [the official documentation of the tns package](https://github.com/NathanaelA/nativescript-sqlite) for some other actions.
 
@@ -62,7 +62,7 @@ var exampleModel = require("data-models/example");
 
 var somewhere = function () {
   liteDb.getInstance(); //If you want to use the official documentation api
-  
+
   liteDb.createTable(exampleModel);
 
   var record = {
@@ -88,9 +88,9 @@ var somewhere = function () {
   liteDb.insertMany(exampleModel.tableName, dataToInsert);
 
   var searched = liteDb.findById(exampleModel.tableName, 5);
-  
+
   liteDb.deleteById(exampleModel.tableName, 5);
 
-  var aLotOfRecords = liteDb.getAllFromTable(exampleModel.tableName);
+  var aLotOfRecords = liteDb.getAllFromTable(exampleModel); //will return [{},{}] with exampleModel structure
 };
 ```
