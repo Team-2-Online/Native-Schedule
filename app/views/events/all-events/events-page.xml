@@ -8,11 +8,16 @@
         </ActionBar>
     </Page.actionBar>
     <ScrollView>
+        <ListView items="{{allEvents}}">
+            <!-- <ListView.itemTemplate>
+                <Label text="{{}}" textWrap="true" class="title" />
+            </ListView.itemTemplate> -->
+        </ListView>
         <!-- <GridLayout columns="*, *" rows="*, *"  style.backgroundColor="white" >
-            <Image row="0" col="0" src="res://note" stretch="fill" />
-            <Image row="1" col="1" src="res://note" stretch="fill" />
-            <Image row="1" col="0" src="res://note" stretch="fill"/>
-            <Image row="0" col="1" src="res://note" stretch="fill"/>
-        </GridLayout> -->
-    </ScrollView>
+        <Image row="0" col="0" src="res://note" stretch="fill" />
+        <Image row="1" col="1" src="res://note" stretch="fill" />
+        <Image row="1" col="0" src="res://note" stretch="fill"/>
+        <Image row="0" col="1" src="res://note" stretch="fill"/>
+    </GridLayout> -->
+</ScrollView>
 </Page>

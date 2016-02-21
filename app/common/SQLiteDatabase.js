@@ -55,7 +55,7 @@ var sqliteSingleton = (function () {
     valuesString = valuesString.substring(0, valuesString.length - 1);
     placeHolder = placeHolder.substring(0, placeHolder.length - 1);
 
-    _getInstance().execSQL("insert into `"+ tableName +"` ("+ Object.keys(input) +") values ("+ placeHolder +")", valuesString, function(err) {
+    _getInstance().execSQL("insert into `"+ tableName +"` ("+ Object.keys(input) +") values ("+ valuesString +")", function(err) {
       if (err) {
         console.log("Error with inserting entity", err);
         return;
