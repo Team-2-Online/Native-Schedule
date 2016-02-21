@@ -22,11 +22,10 @@
                         <ScrollView row="2">                     
                             <ListView items="{{ allEvents() }}" 
                                 loaded="onLoaded" 
-                                itemLoading="onItemLoading" 
-                                itemTap="onItemTap"
+                                itemLoading="onItemLoading"                              
                                 separatorColor="transparent"
                                 rowHeight="45"  
-                                                                
+                                itemTap="eventItemTapped"                                                                
                                 >
                                 <ListView.itemTemplate >       
                                 <StackLayout>  
