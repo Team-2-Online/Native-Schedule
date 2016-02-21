@@ -71,13 +71,25 @@ var sqliteSingleton = (function () {
         }
     };
 
-    function _findById(tableName, id){
+    function _findById(dataModel, id){
+        var allFields = [];
+        for (var i = 0; i < dataModel.fieldsSchema.length; i++) {
+            allFields.push(dataModel.fieldsSchema[i]["key"])
+        }
+
         var result = undefined;
-        _getInstance().get("SELECT * FROM `"+ tableName +"` WHERE `id` == '"+ id +"'", function (err, loadedData) {
+        _getInstance().get("SELECT * FROM `"+ dataModel.tableName +"` WHERE `id` == '"+ id +"'", function (err, loadedData) {
             if (err) {
                 console.log(err);
             } else {
                 result = loadedData;
+                var currentRow = new Object();
+                for (var i = 0; i < allFields.length; i++) {
+                    var field = "";
+                    field += allFields[i];
+                    currentRow[field] = loadedData[i];
+                }
+                result = currentRow;
             }
         });
         return result;
