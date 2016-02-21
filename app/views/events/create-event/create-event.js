@@ -34,8 +34,7 @@ var pageModules = (function() {
 
             page.bindingContext = model;
             model.eventTitle = "";
-            model.eventDescription = "";
-            
+            model.eventDescription = "";            
 
             topmost = frameModule.topmost();
         },
@@ -56,9 +55,7 @@ var pageModules = (function() {
             //console.log(JSON.stringify(model, null, 4));
             //console.log(model.eventHour)
             //console.log(model.eventMinutes)
-
         }
-
     }
 
     return pageModules;

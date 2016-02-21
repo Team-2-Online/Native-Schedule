@@ -20,7 +20,7 @@
     </GridLayout>
 
     <StackLayout height="50" orientation="horizontal" class="buttonContainer" backgroundColor="white"  row="3">
-        <Button text="Add new" tap="{{ tapAction }}" />
+        <Button text="New Note" tap="{{ navigateToAddNotePage }}" />
         <Button text="Go to notes" tap="{{ navigateToNotesPage }}" />
      </StackLayout>
 

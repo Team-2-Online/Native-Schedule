@@ -31,6 +31,8 @@ var HomePageModel = (function (_super) {
 	HomePageModel.prototype.navigateToEventsPage = navigation.goToAllEvents;
 
 	HomePageModel.prototype.navigateToAddEventPage = navigation.goToAddEvent;
+    
+    HomePageModel.prototype.navigateToAddNotePage = navigation.goToAddNote;
 
 	return HomePageModel;
 })(observable.Observable);

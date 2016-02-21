@@ -87,3 +87,8 @@ TabViewItem{
      text-align: center;
      white-space: pre-wrap;     
 }
+
+.create-note-text-view{
+    padding: 50;
+    padding-top: 170;
+}

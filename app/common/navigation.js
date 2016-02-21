@@ -11,5 +11,8 @@ module.exports = {
 	},
 	goToAllNotes: function() {
 		frameModule.topmost().navigate("views/notes/all-notes/notes-page");
+	},
+	goToAddNote: function() {
+		frameModule.topmost().navigate("views/notes/create-note/create-note");
 	}
 };

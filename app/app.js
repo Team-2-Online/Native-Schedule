@@ -3,6 +3,7 @@ var application = require("application");
 var liteDb = require("./common/SQLiteDatabase");
 var navigation = require("./common/navigation");
 var eventsModel = require("./data-models/event");
+var noteModel = require("./data-models/note");
 
 application.start({ moduleName: "main-page" });
 
@@ -14,3 +15,4 @@ application.start({ moduleName: "main-page" });
 
 
 liteDb.createTable(eventsModel);
+liteDb.createTable(noteModel);
