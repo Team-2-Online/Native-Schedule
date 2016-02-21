@@ -6,7 +6,7 @@
   </Page.actionBar>
     <TabView selectedIndexChanged="indexChange" color="white" tabsBackgroundColor="#990099" selectedColor="white" >
         <TabView.items>
-            
+
             <TabViewItem title="Date and time">
                 <TabViewItem.view>
                     <StackLayout>
@@ -14,18 +14,17 @@
                        <TimePicker hour="{{ eventHour }}" minute="{{ eventMinutes }}"></TimePicker>
                     </StackLayout>
                 </TabViewItem.view>
-            </TabViewItem>       
-            
+            </TabViewItem>
+
             <TabViewItem title="Info">
                 <TabViewItem.view>
                 <GridLayout rows="50,*,50" columns="*">
                       <TextField row="0" hint="Event title" text="{{ eventTitle }}" />
-                        <TextView row="1" hint="Event description" text="{{ eventDescription }}" editable="true" height="100%"/>   
+                        <TextView row="1" hint="Event description" text="{{ eventDescription }}" editable="true" height="100%"/>
                         <Button row="2" text="Save event" tap="saveEvent" width="100%" class="btn-big"/>
-                </GridLayout>                  
+                </GridLayout>
                 </TabViewItem.view>
             </TabViewItem>
-            
         </TabView.items>
     </TabView>
 </Page>
