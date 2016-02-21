@@ -9,6 +9,8 @@ var dialogs = require("ui/dialogs");
 var eventsModel = require(__base + "data-models/event");
 var liteDb = require(__base + "common/SQLiteDatabase");
 var navigation = require(__base + "common/navigation");
+var validator = require("../../../common/validation");
+var Toast = require('nativescript-toast');
 
 var pageModules = (function() {
 
@@ -39,7 +41,6 @@ var pageModules = (function() {
             topmost = frameModule.topmost();
         },
         saveEvent: function() {
-
             var record = {
                 eventTitle: "'"+ model.eventTitle +"'",
                 eventDescription: "'"+ model.eventDescription +"'",
@@ -49,12 +50,26 @@ var pageModules = (function() {
                 eventHour: model.eventHour,
                 eventMinutes: model.eventMinutes
             };
-            liteDb.insertRecord(eventsModel.tableName, record);
-            navigation.goToAllEvents();
+            
+            if(validator.checkLenght(record["eventTitle"], 5, 33) && validator.checkLenght(record["eventDescription"], 5, 258)){
+                if(validator.validateTitle(record["eventTitle"]) && validator.validateDescription(record["eventDescription"])){
+                liteDb.insertRecord(eventsModel.tableName, record);
+                navigation.goToAllEvents();
+                var toast = Toast.makeText("You succesfully added a new event!");
+                toast.show();
+                
             // TODO: do something with the data
             //console.log(JSON.stringify(model, null, 4));
             //console.log(model.eventHour)
             //console.log(model.eventMinutes)
+                } else{
+                    var errToastIllegal = Toast.makeText("The title or the description contaiin illegal symbols");
+                    errToastIllegal.show();
+                }
+            } else{
+                var errLenToast = Toast.makeText("The title should be long between 3 and 32 symbols and the description - between 3 and 256");
+                errLenToast.show();
+            }
         }
     }
 

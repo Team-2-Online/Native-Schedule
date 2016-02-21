@@ -65,7 +65,18 @@ var HomePageModel = (function (_super) {
 			frameModule.topmost().navigate(navigationEntry);
 		};
     
-    HomePageModel.prototype.navigateToAddNotePage = navigation.goToAddNote;
+    HomePageModel.prototype.navigateToAddNotePage = function(){
+        var navigationEntry = {
+				moduleName: "./views/notes/create-note/create-note",
+				backstackVisible: true,
+				animated: true,
+				navigationTransition: {
+					transition: "flip "
+				},
+			};
+
+			frameModule.topmost().navigate(navigationEntry);
+		};
 
 	return HomePageModel;
 })(observable.Observable);

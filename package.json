@@ -1,13 +1,14 @@
 {
-	"nativescript": {
-		"id": "org.nativescript.NativeSchedule",
-		"tns-android": {
-			"version": "1.6.1"
-		}
-	},
-	"dependencies": {
-        "nativescript-floatingactionbutton": "^0.2.3",
-		"nativescript-sqlite": "^1.0.8",
-		"tns-core-modules": "1.6.0"
-	}
+  "nativescript": {
+    "id": "org.nativescript.NativeSchedule",
+    "tns-android": {
+      "version": "1.6.1"
+    }
+  },
+  "dependencies": {
+    "nativescript-floatingactionbutton": "^0.2.3",
+    "nativescript-sqlite": "^1.0.8",
+    "nativescript-toast": "^1.2.0",
+    "tns-core-modules": "1.6.0"
+  }
 }

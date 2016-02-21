@@ -9,6 +9,8 @@ var dialogs = require("ui/dialogs");
 var notesModel = require(__base + "data-models/note");
 var liteDb = require(__base + "common/SQLiteDatabase");
 var navigation = require(__base + "common/navigation");
+var Toast = require("nativescript-toast");
+var validator = require("../../../common/validation");
 
 var topmost;
     
@@ -39,8 +41,23 @@ var pageModules = (function() {
                 noteType: "'"+ model.noteType +"'",
                 noteImagePath: "'"+ model.noteImagePath +"'"
             };
-            liteDb.insertRecord(notesModel.tableName, record);
-            navigation.goToAllNotes();
+            
+            if(validator.checkLenght(record["noteContent"], 5, 130)){
+                console.log(record["noteContent"]);
+                console.log(record["noteContent"].length);
+                if(validator.validateDescription(record['noteContent'])){
+                    liteDb.insertRecord(notesModel.tableName, record);
+                    navigation.goToAllNotes();
+                    var toast = Toast.makeText("You successfully added a new note!");
+                    toast.show();
+                } else{
+                       var errToastSymbols = Toast.makeText("Your note contain illegal symbol (can cointain only letters, diggits and . , ! ? ())");
+                        errToastSymbols.show();
+                }
+            } else{
+                var errToast = Toast.makeText("Your note should be longer than 3 symbols and shorter than 128");
+                errToast.show();
+            }
             // TODO: do something with the data
             //console.log(JSON.stringify(model, null, 4));
             //console.log(model.eventHour)
