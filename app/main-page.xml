@@ -8,7 +8,7 @@
 
     <Label text="You have no events added for today" class="eventsCount" textWrap="true"  row="0"/>
     <StackLayout orientation="horizontal" class="buttonContainer"  row="1">
-        <Button text="Add new" tap="{{ tapAction }}" />
+        <Button text="Add new" tap="{{ navigateToAddEventPage }}" />
         <Button text="Go to events" tap="{{ navigateToEventsPage }}" />
     </StackLayout>
 
