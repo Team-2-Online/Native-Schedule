@@ -5,12 +5,15 @@
        <NavigationButton android.systemIcon="ic_menu_back"/>
        </ActionBar>
   </Page.actionBar>
-    <TabView selectedIndexChanged="indexChange" color="white" tabsBackgroundColor="#990099" selectedColor="white" >
+  
+  <!--<Label  text="Some date" textWrap="true" color="#990099" horizontalAlignment="center" class="tab-header" id="some-label"/> -->
+  
+    <TabView selectedIndexChanged="indexChange" color="white" tabsBackgroundColor="#990099" selectedColor="white" id="tab-view-test" >
         <TabView.items>
             
             <TabViewItem title="Today">
                 <TabViewItem.view>
-                    <GridLayout rows="auto, 75, *" columns="*"  >
+                    <GridLayout rows="auto, 75, *" columns="*"  class="main-container">
                         <Label row="1" text="Some date" textWrap="true" color="#990099" horizontalAlignment="center" class="tab-header" />    
                             <ScrollView row="2">                     
                                 <ListView items="{{ someEvents }}" 
@@ -18,9 +21,10 @@
                                     itemLoading="onItemLoading" 
                                     itemTap="onItemTap"
                                     separatorColor="transparent"
-                                    rowHeight="45"                                
+                                    rowHeight="45"  
+                                                                 
                                     >
-                                    <ListView.itemTemplate>       
+                                    <ListView.itemTemplate >       
                                     <StackLayout>  
                                         <StackLayout orientation="horizontal" class="item-row" height="40" >
                                             <Label text="{{ $value.dateTime }}" textWrap="true" color="black"  verticalAlignment="bottom" />
@@ -42,13 +46,42 @@
                 </TabViewItem.view>
             </TabViewItem>       
             
-            <TabViewItem title="Tomorrow">
-                <TabViewItem.view>
-                    <GridLayout rows="150, 150, 150" columns="*">
-                        <Label row="0"  col="0" text="{{ eventTitle }}" color="black" />
-                        <Label row="1"  col="0"  text="{{ eventTitle }}" color="black" />   
-                        
-                    </GridLayout>                  
+            <TabViewItem title="Tomorrow" >
+                <TabViewItem.view style.horizontalAlignment="center" width="50%">
+                <GridLayout rows="*" columns="*">
+                <ScrollView>
+                <GridLayout rows="*" columns="*">
+                    <WrapLayout orientation="horizontal" 
+                        horizontalAlignment="center"     
+                        width="100%" 
+                        height="100%" 
+                        backgroundColor="transparent"  
+                        id="notes-wrapper-imgs"
+                    >                           
+                            
+                    </WrapLayout>  
+                         <WrapLayout orientation="horizontal" 
+                            horizontalAlignment="center"     
+                            width="100%" 
+                            height="100%" 
+                            backgroundColor="transparent"  
+                                   id="notes-wrapper-text"
+                        > 
+                            
+                    </WrapLayout>  
+                                             
+                                 <FAB:fab tap="fabTap"                                  
+                                    icon="res://icon"
+                                    rippleColor="#f1f1f1"
+                                    class="fab-button" />
+                </GridLayout>
+                             </ScrollView>
+                                        <FAB:fab tap="fabTap"                                  
+                                    icon="res://icon"
+                                    rippleColor="#f1f1f1"
+                                    class="fab-button" />
+      
+                  </GridLayout>
                 </TabViewItem.view>
             </TabViewItem>
             

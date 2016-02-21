@@ -4,6 +4,10 @@ var labelModule = require("ui/label")
 var observable = require("data/observable");
 var frameModule = require("ui/frame");
 var dialogs = require("ui/dialogs");
+var wrapLayoutModule = require("ui/layouts/wrap-layout");
+var imageModule = require("ui/image");
+var textViewModule = require("ui/text-view");
+var platformModule = require("platform");
 
 var pageModules = (function() {
     
@@ -158,6 +162,52 @@ var pageModules = (function() {
             
             
             topmost = frameModule.topmost();
+            
+               var notesWrapperImgs = view.getViewById(page, "notes-wrapper-imgs");
+               
+               console.log(notesWrapperImgs || "huc-deiba")
+    
+               var notesWrapperText = view.getViewById(page, "notes-wrapper-text");
+               
+               var screenWidth = (platformModule.screen.mainScreen.widthDIPs / 2);
+               var scale =  platformModule.screen.mainScreen.scale;
+               
+               console.log(screenWidth)
+                              
+               console.log(scale)
+                
+            if(notesWrapperText && notesWrapperImgs){
+                var i = 0;
+                
+                testEvents.forEach(function (params) {
+                    
+                       var stickyImage = new imageModule.Image();
+                        stickyImage.src ="res://note";
+                        stickyImage.stretch="fill";
+                        stickyImage.width = screenWidth;
+                        stickyImage.height = screenWidth;
+                        
+                             notesWrapperImgs.addChild(stickyImage);
+                        
+                        var hg = stickyImage.height
+                       // console.log(hg)
+                      var label = new labelModule.Label();
+                        label.text = params.title;
+                        label.width = screenWidth;
+                        label.height =screenWidth;
+                        label.cssClass =  "sticky-text";
+                        label.textWrap = true;
+                        
+                        
+                        
+                     
+                    
+                    notesWrapperText.addChild(label);
+               
+                    
+                    i += 1;
+                })
+            }  
         },        
          saveEvent: function() {
              

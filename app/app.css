@@ -50,13 +50,29 @@ TabViewItem{
     color: #fff;  /* iOS Only */
 }
 
-.item-row{
-    border: 1px solid black;  
- 
+.item-row{  
+    padding: 5;
+    color: greenyellow; 
 }
 
 .tab-header{
     horizontal-align: center;
     margin-top: 20;
     font-size: 20em
+}
+
+.main-container{
+    padding: 10;
+}
+
+.sticky-text{
+     vertical-align: middle;
+     border-color: none;
+     color: black;
+     padding: 30;
+     padding-top: 80;
+     font-size: 10em;
+     horizontal-align: center;
+     text-align: center;
+     white-space: pre-wrap;     
 }
