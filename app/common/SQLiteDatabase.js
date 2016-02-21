@@ -71,13 +71,25 @@ var sqliteSingleton = (function () {
         }
     };
 
-    function _findById(tableName, id){
+    function _findById(dataModel, id){
+        var allFields = [];
+        for (var i = 0; i < dataModel.fieldsSchema.length; i++) {
+            allFields.push(dataModel.fieldsSchema[i]["key"])
+        }
+
         var result = undefined;
-        _getInstance().get("SELECT * FROM `"+ tableName +"` WHERE `id` == '"+ id +"'", function (err, loadedData) {
+        _getInstance().get("SELECT * FROM `"+ dataModel.tableName +"` WHERE `id` == '"+ id +"'", function (err, loadedData) {
             if (err) {
                 console.log(err);
             } else {
                 result = loadedData;
+                var currentRow = new Object();
+                for (var i = 0; i < allFields.length; i++) {
+                    var field = "";
+                    field += allFields[i];
+                    currentRow[field] = loadedData[i];
+                }
+                result = currentRow;
             }
         });
         return result;
@@ -92,6 +104,36 @@ var sqliteSingleton = (function () {
         var result = [];
         var i = 0;
         _getInstance().each("SELECT * FROM `"+ dataModel.tableName +"`",
+        function (err, row) {
+            var currentRow = new Object();
+            var rowAsString = "";
+            rowAsString += row;
+            var columnValues = rowAsString.split(",");
+            for (var i = 0; i < allFields.length; i++) {
+                var field = "";
+                field += allFields[i];
+                currentRow[field] = columnValues[i];
+            }
+            result.push(currentRow);
+        },
+        function (err, count) {
+            console.log("DEBUG: Returned rows:", count);
+        });
+
+        return result;
+    };
+
+    //TODO: currently working for event data-model. Make it generic!
+    function _getAllFromTableWithDate(dataModel, day, month, year){
+        var allFields = [];
+        for (var i = 0; i < dataModel.fieldsSchema.length; i++) {
+            allFields.push(dataModel.fieldsSchema[i]["key"])
+        }
+
+        var result = [];
+        var i = 0;
+
+        _getInstance().each("SELECT * FROM `"+ dataModel.tableName +"` WHERE eventDay = '"+ day +"' AND eventMonth = '"+ month +"' AND eventYear = '"+ year +"'",
         function (err, row) {
             var currentRow = new Object();
             var rowAsString = "";
@@ -129,6 +171,7 @@ var sqliteSingleton = (function () {
         insertMany: _insertMany,
         findById: _findById,
         getAllFromTable: _getAllFromTable,
+        getAllFromTableWithDate: _getAllFromTableWithDate,
         deleteById: _deleteById
     };
 })();
