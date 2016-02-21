@@ -9,4 +9,12 @@ function navigateToNotesPage() {
     vmModule.mainViewModel.navigateToNotesPage();
 }
 
+function navigateToEventsPage(){
+    vmModule.mainViewModel.navigateToEventsPage();
+}
+
+function navigateToAddEventPage(){
+    vmModule.mainViewModel.navigateToAddEventPage();
+}
+
 exports.pageLoaded = pageLoaded;

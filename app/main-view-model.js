@@ -26,11 +26,44 @@ var HomePageModel = (function (_super) {
 		}
 	};
 
-	HomePageModel.prototype.navigateToNotesPage = navigation.goToAllNotes;
+	HomePageModel.prototype.navigateToNotesPage = function(){
+        var navigationEntry = {
+				moduleName: "./views/notes/all-notes/notes-page",
+				backstackVisible: true,
+				animated: true,
+				navigationTransition: {
+					transition: "flip "
+				},
+			};
 
-	HomePageModel.prototype.navigateToEventsPage = navigation.goToAllEvents;
+			frameModule.topmost().navigate(navigationEntry);
+		};
 
-	HomePageModel.prototype.navigateToAddEventPage = navigation.goToAddEvent;
+	HomePageModel.prototype.navigateToEventsPage = function(){
+        var navigationEntry = {
+				moduleName: "./views/events/all-events/events-page",
+				backstackVisible: true,
+				animated: true,
+				navigationTransition: {
+					transition: "flip "
+				},
+			};
+
+			frameModule.topmost().navigate(navigationEntry);
+		};
+
+	HomePageModel.prototype.navigateToAddEventPage = function(){
+        var navigationEntry = {
+				moduleName: "./views/events/create-event/create-event",
+				backstackVisible: true,
+				animated: true,
+				navigationTransition: {
+					transition: "flip "
+				},
+			};
+
+			frameModule.topmost().navigate(navigationEntry);
+		};
     
     HomePageModel.prototype.navigateToAddNotePage = navigation.goToAddNote;
 
