@@ -1,5 +1,6 @@
 global.__base = __dirname + '/';
 var application = require("application");
+var navigation = require("./common/navigation");
 application.start({ moduleName: "main-page" });
 
 
