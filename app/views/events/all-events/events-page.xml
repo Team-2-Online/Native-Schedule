@@ -8,7 +8,7 @@
         </ActionBar>
     </Page.actionBar>
     <ScrollView>
-        <ListView items="{{allEvents}}">
+        <ListView items="{{ allEvents() }}">
             <ListView.itemTemplate>
                 <Label text="{{ eventTitle }}" textWrap="true" class="title" />
             </ListView.itemTemplate>

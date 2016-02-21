@@ -19,10 +19,15 @@ var pageViewModel = (function (_super) {
 		// console.log(JSON.stringify(resultDb, null, 4));
 		return result;
 	}
+    
+    // function refreshData(){
+    //    pageViewModel.allEvents(); 
+    // }
 
 	pageViewModel.prototype.navigateToAddEventPage = navigation.goToAddEvent;
 
-	pageViewModel.prototype.allEvents = allEvents();
+	pageViewModel.prototype.allEvents = allEvents;
+   // pageViewModel.prototype.refreshData = refreshData();
 
 	return pageViewModel;
 })(observable.Observable);
