@@ -14,7 +14,7 @@ var pageViewModel = (function (_super) {
 	};
 
 	function allEvents(){
-	    var resultDb = liteDb.getAllFromTable(eventsModel.tableName);
+	    var resultDb = liteDb.getAllFromTable(eventsModel);
 		var result = new observableArray.ObservableArray(resultDb);
 		// console.log(JSON.stringify(resultDb, null, 4));
 		return result;

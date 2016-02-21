@@ -9,9 +9,9 @@
     </Page.actionBar>
     <ScrollView>
         <ListView items="{{allEvents}}">
-            <!-- <ListView.itemTemplate>
-                <Label text="{{}}" textWrap="true" class="title" />
-            </ListView.itemTemplate> -->
+            <ListView.itemTemplate>
+                <Label text="{{ eventTitle }}" textWrap="true" class="title" />
+            </ListView.itemTemplate>
         </ListView>
         <!-- <GridLayout columns="*, *" rows="*, *"  style.backgroundColor="white" >
         <Image row="0" col="0" src="res://note" stretch="fill" />
