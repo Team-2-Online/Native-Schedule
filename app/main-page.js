@@ -3,6 +3,7 @@ var vmModule = require("./main-view-model");
 var eventsModel = require(__base + "data-models/event");
 var liteDb = require(__base + "common/SQLiteDatabase");
 function pageLoaded(args) {
+    
     var page = args.object;
     page.bindingContext = vmModule.mainViewModel;
     var bySomeDate = liteDb.findById(eventsModel, 2);
@@ -19,6 +20,10 @@ function navigateToEventsPage(){
 
 function navigateToAddEventPage(){
     vmModule.mainViewModel.navigateToAddEventPage();
+}
+
+function navigateToAddNotePage(){
+    vmModule.mainViewModel.navigateToAddNotePage();
 }
 
 exports.pageLoaded = pageLoaded;
