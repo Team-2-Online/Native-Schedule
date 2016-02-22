@@ -1,6 +1,6 @@
 'use strict';
 
-let observable = require("data/observable");
+var observable = require("data/observable");
 var observableArray = require("data/observable-array");
 var navigation = require(__base + "common/navigation");
 var noteModel = require(__base + "data-models/note");

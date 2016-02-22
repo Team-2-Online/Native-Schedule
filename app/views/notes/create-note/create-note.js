@@ -11,6 +11,11 @@ var liteDb = require(__base + "common/SQLiteDatabase");
 var navigation = require(__base + "common/navigation");
 var Toast = require("nativescript-toast");
 var validator = require("../../../common/validation");
+var cameraModule = require("camera");
+var imageModule = require("ui/image");
+var imageSource = require("image-source");
+var fs = require("file-system");
+var tabViewModule = require("ui/tab-view");
 
 var topmost;
     
@@ -21,19 +26,56 @@ var pageModules = (function() {
         noteType: "",
         noteImagePath: ""
     });
+    
+    var page;
 
     var pageModules = {
 
         onLoaded: function(args) {
-            var page = args.object;
-
+            page = args.object;
             page.bindingContext = model;
             model.noteContent = "";
             model.noteType = "";
-            
-
+            console.log(tabViewModule.item);
             topmost = frameModule.topmost();
         },
+        
+        addImageNote: function() {
+            cameraModule.takePicture().then(function(picture) {
+            console.log("Result is an image source instance");
+            
+             var image = view.getViewById(page, "img-container");
+             
+             
+             console.dir(picture);
+             //var inBase64 = picture.To
+             
+               //image.imageSource = picture;
+             
+            //  var img = imageSource.fromData(picture)
+             var folder = fs.knownFolders.documents();            
+             var path = fs.path.join(folder.path, "Test.jpeg");            
+             var saved = picture.saveToFile(path,"jpeg");
+             
+                var getted = imageSource.fromFile(path);
+               
+            //    console.log(getted)
+            
+                    image.imageSource = getted;
+            
+
+           
+       
+           //var andrSourse = new imageSourceAndroidModule()
+          // var saved = andrSourse.saveToAlbum(picture, "hucpic", "jpg", 50)
+           
+          // console.dir(saved);
+       
+          
+       
+            });
+        },
+        
         saveNote: function() {
 
             var record = {
@@ -72,3 +114,4 @@ var pageModules = (function() {
 exports.onLoaded = pageModules.onLoaded;
 exports.indexChange = pageModules.indexChange;
 exports.saveNote = pageModules.saveNote;
+exports.addImageNote = pageModules.addImageNote;

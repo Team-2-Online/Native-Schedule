@@ -1,0 +1,6 @@
+{
+  "node": true,
+  "esnext": true,
+  "newcap": false,
+  "-W117": true
+}
