@@ -106,3 +106,28 @@ Label{
     color: gray;
 }
 
+.details-date{
+    vertical-align: middle;
+     horizontal-align: middle;
+    margin-top: 20;
+    color: #ff4081; 
+    font-size: 30em; 
+    text-align: center;
+      background-color:  #990099; 
+}
+
+.details-title{
+    vertical-align: middle;
+    margin-top: 20;
+    color: black; 
+    font-size: 25em;
+    text-align: center;  
+}
+
+.details-description{
+    vertical-align: middle;
+    margin-top: 20;
+    color: black; 
+    font-size: 20em;  
+    text-align: center; 
+}

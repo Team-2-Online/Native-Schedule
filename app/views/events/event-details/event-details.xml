@@ -1,6 +1,29 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
   loaded="pageLoaded"
   navigatedTo="pageNavigatedTo">
+  <GridLayout rows="auto, 100, *" columns="*">
+     <Label text="{{dateFormated}}"
+     class="details-date"
+     verticalAlaig="center"
+       row="0" />
+  
+      <Label text="{{title}}"
+        class="details-title"
+        row="1" />
+       
+       <Label text="{{description}}"       
+        row="2"
+ 
+        class="details-description"
+        textWrap="true"
+        doubleTap="zoomInDescription"
+        longPress="zoomOutDescription"/>
+      
+  </GridLayout>
+  
+  
+  
+<!--  
   <StackLayout>
     <Label class="title"
       text="{{title}}" />
@@ -9,5 +32,5 @@
       textWrap="true"
       doubleTap="zoomInDescription"
       longPress="zoomOutDescription"/>
-  </StackLayout>
+  </StackLayout>-->
 </Page>
