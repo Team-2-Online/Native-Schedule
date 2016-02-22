@@ -17,7 +17,7 @@ var model = (function () {
     });
     fieldsSchema.push({
         key: "noteImagePath",
-        value: "integer"
+        value: "text"
     });
 
     return {

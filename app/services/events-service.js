@@ -29,12 +29,7 @@ function all(page) {
           })
         .sortBy('date')
         .value()
-  
-            
-            sorted.forEach(function(element) {
-                console.log(element.date + " - " + element.eventTitle)
-            }, this);
-            
+        
    return sorted;
 }
 
