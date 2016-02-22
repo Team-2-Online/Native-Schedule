@@ -22,8 +22,9 @@
 
                 <TabViewItem title="Photo note">
                     <TabViewItem.view>
-                        <GridLayout rows="*" columns="*">
-                            <Image src="res://camera" stretch="none" class="camera" tap="addImageNote" />
+                        <GridLayout rows="*, *" columns="*">
+                                  <Image  class="camera" id="img-container" />
+                            <Image src="res://camera" stretch="none" class="camera" tap="addImageNote" row="1" />
                         </GridLayout>
                     </TabViewItem.view>
                 </TabViewItem>
