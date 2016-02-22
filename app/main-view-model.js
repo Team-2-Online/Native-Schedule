@@ -28,16 +28,19 @@ var HomePageModel = (function (_super) {
 	};
 
 	HomePageModel.prototype.navigateToNotesPage = function(){
+        var topmost = frameModule.topmost();
         var navigationEntry = {
 				moduleName: "./views/notes/all-notes/notes-page",
 				backstackVisible: true,
 				animated: true,
-				navigationTransition: {
-					transition: "flip "
+				transition: {
+					name: "flip",
+                    duration:380,
+                    curve: "easeIn"
 				},
 			};
 
-			frameModule.topmost().navigate(navigationEntry);
+			topmost.navigate(navigationEntry);
 		};
 
 	HomePageModel.prototype.navigateToEventsPage = function(){
@@ -45,8 +48,10 @@ var HomePageModel = (function (_super) {
 				moduleName: "./views/events/all-events/events-page",
 				backstackVisible: true,
 				animated: true,
-				navigationTransition: {
-					transition: "flip "
+			    transition: {
+					name: "flip",
+                    duration:380,
+                    curve: "easeIn"
 				},
 			};
 
@@ -58,10 +63,11 @@ var HomePageModel = (function (_super) {
 				moduleName: "./views/events/create-event/create-event",
 				backstackVisible: true,
 				animated: true,
-				nativeTransitionsAndroid: {
-                 "type": "flip",
-                "direction": "right"
-    }
+				transition: {
+					name: "flip",
+                    duration:380,
+                    curve: "easeIn"
+				},
 			};
 
 			frameModule.topmost().navigate(navigationEntry);
@@ -72,8 +78,10 @@ var HomePageModel = (function (_super) {
 				moduleName: "./views/notes/create-note/create-note",
 				backstackVisible: true,
 				animated: true,
-				navigationTransition: {
-					transition: "flip "
+				transition: {
+					name: "flip",
+                    duration:380,
+                    curve: "easeIn"
 				},
 			};
 

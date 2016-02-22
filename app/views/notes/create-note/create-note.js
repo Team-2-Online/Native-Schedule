@@ -11,6 +11,8 @@ var liteDb = require(__base + "common/SQLiteDatabase");
 var navigation = require(__base + "common/navigation");
 var Toast = require("nativescript-toast");
 var validator = require("../../../common/validation");
+var camera = require("camera");
+var tabViewModule = require("ui/tab-view");
 
 var topmost;
     
@@ -26,14 +28,15 @@ var pageModules = (function() {
 
         onLoaded: function(args) {
             var page = args.object;
-
             page.bindingContext = model;
             model.noteContent = "";
             model.noteType = "";
+            console.log(tabViewModule.item);
             
 
             topmost = frameModule.topmost();
         },
+        
         saveNote: function() {
 
             var record = {
