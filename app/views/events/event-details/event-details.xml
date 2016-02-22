@@ -20,17 +20,4 @@
         longPress="zoomOutDescription"/>
       
   </GridLayout>
-  
-  
-  
-<!--  
-  <StackLayout>
-    <Label class="title"
-      text="{{title}}" />
-    <Label text="{{description}}"
-      class="description"
-      textWrap="true"
-      doubleTap="zoomInDescription"
-      longPress="zoomOutDescription"/>
-  </StackLayout>-->
 </Page>
