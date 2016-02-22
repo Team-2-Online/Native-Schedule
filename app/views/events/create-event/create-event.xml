@@ -1,4 +1,5 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onLoaded"
+    xmlns:maps="nativescript-google-maps-sdk"
     xmlns:FAB="nativescript-floatingactionbutton">
 
     <Page.actionBar>
@@ -25,7 +26,19 @@
                     <TabViewItem.view>
                         <GridLayout rows="50,*" columns="*">
                             <TextField row="0" hint="Event title" text="{{ eventTitle }}" />
-                            <TextView row="1" hint="Event description" text="{{ eventDescription }}" editable="true" height="100%"/>
+                            <TextView row="1" hint="Event description" text="{{ eventDescription }}" editable="true" height="100%" />
+                            
+                            <GridLayout>
+                                <maps:mapView latitude="{{ latitude }}"
+                                    longitude="{{ longitude }}"
+                                    zoom="{{ zoom }}"
+                                    bearing="{{ bearing }}"
+                                    tilt="{{ tilt }}"
+                                    mapReady="onMapReady"
+                                    coordinateTapped="onCoordinateTapped"
+                                    markerSelect="onMarkerSelect"
+                                    cameraChanged="onCameraChanged"/>
+                        </GridLayout>
                     
                         </GridLayout>
                     </TabViewItem.view>
