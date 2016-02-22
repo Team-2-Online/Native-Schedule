@@ -32,37 +32,13 @@ function pageLoaded(args) {
 
     var width = (platformModule.screen.mainScreen.widthDIPs / 2);
 
-
     if (notesWrapperText && notesWrapperImgs) {
-        var i = 0;       
 
         vmModule.notesPageViewModel.allNotes().forEach(function (params) {
-
-            var stickyImage = new imageModule.Image();
-            stickyImage.src = "res://note";
-            stickyImage.stretch = "fill";
-            stickyImage.width = width;
-            stickyImage.height = width;
-            var observer = stickyImage.on(gestures.GestureTypes.longPress, function (args) {
-                 console.log(params.id);
-                 dialogs.confirm({
-                    title: "Delete note",
-                    message: "Are you sure you'd like to delete this note?",
-                    okButtonText: "Yes",
-                    cancelButtonText: "No",
-                }).then(function (result) {
-                    if(result){
-                       liteDb.deleteById(notesModel.tableName, params.id);
-                       var toast = toaster.makeText("You successfully deleted this note");
-                       toast.show();
-                       
-                    }
-                });
-            });
-
-            notesWrapperImgs.addChild(stickyImage);
+            console.log(params.id)
 
             var label = new labelModule.Label();
+            label.id = "note-" + params.id
             label.text = params.noteContent;
             label.width = width;
             label.height = width;
@@ -71,7 +47,33 @@ function pageLoaded(args) {
 
             notesWrapperText.addChild(label);
 
-            i += 1;
+            var stickyImage = new imageModule.Image();
+            stickyImage.src = "res://note";
+            stickyImage.stretch = "fill";
+            stickyImage.width = width;
+            stickyImage.height = width;
+
+            var observer = stickyImage.on(gestures.GestureTypes.longPress, function (args) {
+                console.log(params.id);
+                console.log(params);
+                console.log(params.noteId);
+                dialogs.confirm({
+                    title: "Delete note",
+                    message: "Are you sure you'd like to delete this note?",
+                    okButtonText: "Yes",
+                    cancelButtonText: "No",
+                }).then(function (result) {
+                    if (result) {
+                        liteDb.deleteById(notesModel.tableName, params.id);
+                        var toast = toaster.makeText("You successfully deleted this note");
+                        notesWrapperImgs.removeChild(stickyImage)
+                        notesWrapperText.removeChild(label)
+                        toast.show();
+                    }
+                });
+            });
+
+            notesWrapperImgs.addChild(stickyImage);
         })
 
         console.log("loaded")

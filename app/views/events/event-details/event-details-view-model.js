@@ -7,29 +7,21 @@ var Observable = require("data/observable")
  var eventsModel = require(__base + "data-models/event");
 
 class EventDetailsViewModel extends Observable {
-  constructor(id, title) {
+  constructor(event) {
     super();
     
     console.log("in constructur")
-    this.id = id;
-    this.title = title; 
-    // this.description = '1231232';
-    this.loadDetails();
-  }
-
-  loadDetails() {
-    let that = this;    
-      
-          console.log("in getting details")
-     var searched = liteDb.findById(eventsModel, this.id);   
-
-     console.log("decc: " +   searched["eventDescription"])
-      that.set('description', searched.eventDescription);
+    this.id = event.id;
+    this.title = event.eventTitle; 
+    this.description = event.eventDescription 
+    this.date = event.date
+    this.dateFormated = event.dateFormated
+    this.isInPast = event.isInPast
   }
 }
 
 module.exports = {
-  create: function(id, title, description) {
-    return new EventDetailsViewModel(id, title, description);
+  create: function(event) {
+    return new EventDetailsViewModel(event);
   }
 };

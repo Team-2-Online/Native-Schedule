@@ -7,8 +7,7 @@ let vm = require('./event-details-view-model');
 function pageLoaded(args) {}
 
 function pageNavigatedTo(args) {
-    console.log("huc in navigateTo")
-    
+    console.log("huc in navigateTo")    
 
   let page = args.object;
   let event = args.context;
@@ -17,7 +16,7 @@ function pageNavigatedTo(args) {
             console.log(event.id)
                  console.log(event.eventTitle)
   
-  page.bindingContext = vm.create(event.id, event.eventTitle);
+  page.bindingContext = vm.create(event);
 }
 
 function zoomInDescription(args) {

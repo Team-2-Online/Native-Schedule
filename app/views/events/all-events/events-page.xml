@@ -52,7 +52,7 @@
                              <ListView items="{{ eventsTomorrow().events }}" 
                                 loaded="onLoaded" 
                                 itemLoading="onItemLoading" 
-                                itemTap="onItemTap"
+                                itemTap="eventItemTapped"
                                 separatorColor="transparent"
                                 rowHeight="45" >
                                 <ListView.itemTemplate >       
@@ -81,7 +81,7 @@
                             <ListView items="{{ eventsNexWeek() }}" 
                                 loaded="onLoaded" 
                                 itemLoading="onItemLoading" 
-                                itemTap="onItemTap"
+                                itemTap="eventItemTapped"
                                 separatorColor="transparent"
                                 rowHeight="45"  
                                                                 
@@ -112,7 +112,7 @@
                             <ListView items="{{ allEvents() }}" 
                                 loaded="onLoaded" 
                                 itemLoading="onItemLoading" 
-                                itemTap="onItemTap"
+                                itemTap="eventItemTapped"
                                 separatorColor="transparent"
                                 rowHeight="45" >
                                 
