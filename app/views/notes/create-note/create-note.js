@@ -11,7 +11,8 @@ var liteDb = require(__base + "common/SQLiteDatabase");
 var navigation = require(__base + "common/navigation");
 var Toast = require("nativescript-toast");
 var validator = require("../../../common/validation");
-var camera = require("camera");
+var cameraModule = require("camera");
+var imageModule = require("ui/image");
 var tabViewModule = require("ui/tab-view");
 
 var topmost;
@@ -32,9 +33,18 @@ var pageModules = (function() {
             model.noteContent = "";
             model.noteType = "";
             console.log(tabViewModule.item);
-            
-
             topmost = frameModule.topmost();
+        },
+        
+        addImageNote: function() {
+            cameraModule.takePicture().then(function(picture) {
+            console.log("Result is an image source instance");
+            var image = new imageModule.Image();
+            image.imageSource = picture;
+            console.dir(picture);
+            picture.Save();
+            console.log(picture.loadFromResouce());
+            });
         },
         
         saveNote: function() {
@@ -75,3 +85,4 @@ var pageModules = (function() {
 exports.onLoaded = pageModules.onLoaded;
 exports.indexChange = pageModules.indexChange;
 exports.saveNote = pageModules.saveNote;
+exports.addImageNote = pageModules.addImageNote;

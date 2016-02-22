@@ -5,7 +5,7 @@
             <NavigationButton android.systemIcon="ic_menu_back"/>
         </ActionBar>
     </Page.actionBar>
-    <GridLayout rows="*" columns="*" >
+    <GridLayout rows="*" columns="*">
 
         <TabView row="0"  selectedIndexChanged="indexChange" color="white" tabsBackgroundColor="#990099" selectedColor="white" >
             <TabView.items>
@@ -23,8 +23,7 @@
                 <TabViewItem title="Photo note">
                     <TabViewItem.view>
                         <GridLayout rows="*" columns="*">
-                            <TextView row="0" hint="Picture dialog here" text="{{ noteContent }}" editable="true" height="100%"/>
-                    
+                            <Image src="res://camera" stretch="none" class="camera" tap="addImageNote" />
                         </GridLayout>
                     </TabViewItem.view>
                 </TabViewItem>

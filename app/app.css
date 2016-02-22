@@ -36,6 +36,12 @@ ActionBar {
     color: white;
 }
 
+.camera{
+    horizontal-align:center;
+    vertical-align: center;
+    padding: 200;
+}
+
 TabViewItem{
     background-color:  #990099;
     color: white;
