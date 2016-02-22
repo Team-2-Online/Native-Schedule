@@ -1,6 +1,7 @@
 'use strict'
 let observable = require("data/observable");
 let frameModule = require('ui/frame');
+
 //Example use of DB
 var liteDb = require(__base + "common/SQLiteDatabase");
 var exampleModel = require(__base + "data-models/example");
@@ -57,9 +58,10 @@ var HomePageModel = (function (_super) {
 				moduleName: "./views/events/create-event/create-event",
 				backstackVisible: true,
 				animated: true,
-				navigationTransition: {
-					transition: "flip "
-				},
+				nativeTransitionsAndroid: {
+                 "type": "flip",
+                "direction": "right"
+    }
 			};
 
 			frameModule.topmost().navigate(navigationEntry);

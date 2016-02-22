@@ -6,6 +6,7 @@
     }
   },
   "dependencies": {
+    "ionic-native-transitions": "^1.0.0-rc9",
     "nativescript-floatingactionbutton": "^0.2.3",
     "nativescript-sqlite": "^1.0.8",
     "nativescript-toast": "^1.2.0",
