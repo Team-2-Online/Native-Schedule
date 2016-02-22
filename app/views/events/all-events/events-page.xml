@@ -17,10 +17,10 @@
             <TabViewItem title="Today">
                 <TabViewItem.view>
                     <GridLayout rows="auto, 75, *" columns="*"  class="main-container">      
-                        <Label row="1" text="Today date" textWrap="true" color="#990099" horizontalAlignment="center" class="tab-header" />
+                        <Label row="1" text="{{ eventsToday().date }}" textWrap="true" color="#990099" horizontalAlignment="center" class="tab-header" />
                                             
                         <ScrollView row="2">                     
-                            <ListView items="{{ allEvents() }}" 
+                            <ListView items="{{ eventsToday().events }}" 
                                 loaded="onLoaded" 
                                 itemLoading="onItemLoading"                              
                                 separatorColor="transparent"
@@ -29,9 +29,10 @@
                                 >
                                 <ListView.itemTemplate >       
                                 <StackLayout>  
-                                    <StackLayout orientation="horizontal" class="item-row" height="40" >
-                                        <Label text="{{ eventTitle }}" textWrap="true" color="black"  verticalAlignment="bottom" />
-                                        <Label text="HUC" textWrap="true" color="black"  verticalAlignment="bottom"  />
+                                    <StackLayout orientation="horizontal" class="item-row" height="40" >                                     
+                                        <Label text="{{ dateFormated }}"  color="black"  verticalAlignment="bottom"  />
+                                         <Label text="   " textWrap="true" color="black"  verticalAlignment="bottom"  />
+                                        <Label text="{{ eventTitle }}" textWrap="false" class="text-center" color="black" width="100%" verticalAlignment="bottom" />
                                     </StackLayout> 
                                     <Border borderRadius="" borderWidth="5" borderColor="#990099" width="100%" height="3">
                                     </Border>
@@ -51,16 +52,15 @@
             
             <TabViewItem title="Tomorrow">
                 <TabViewItem.view>
-                    <GridLayout rows="auto, 75, *" columns="*"  class="main-container">                       
-                        <ScrollView row="2">                     
-                            <ListView items="{{ allEvents() }}" 
+                    <GridLayout rows="auto, 75, *" columns="*"  class="main-container">   
+                        <Label row="1" text="{{ eventsTomorrow().date }}" textWrap="true" color="#990099" horizontalAlignment="center" class="tab-header" />                                      
+                        <ScrollView row="2">
+                             <ListView items="{{ eventsTomorrow().events }}" 
                                 loaded="onLoaded" 
                                 itemLoading="onItemLoading" 
                                 itemTap="onItemTap"
                                 separatorColor="transparent"
-                                rowHeight="45"  
-                                                                
-                                >
+                                rowHeight="45" >
                                 <ListView.itemTemplate >       
                                 <StackLayout>  
                                     <StackLayout orientation="horizontal" class="item-row" height="40" >
@@ -87,7 +87,7 @@
                 <TabViewItem.view>
                     <GridLayout rows="auto, 75, *" columns="*"  class="main-container">                       
                         <ScrollView row="2">                     
-                            <ListView items="{{ allEvents() }}" 
+                            <ListView items="{{ eventsNexWeek() }}" 
                                 loaded="onLoaded" 
                                 itemLoading="onItemLoading" 
                                 itemTap="onItemTap"

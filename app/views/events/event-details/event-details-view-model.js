@@ -21,10 +21,10 @@ class EventDetailsViewModel extends Observable {
     let that = this;    
       
           console.log("in getting details")
-     var searched = liteDb.findById(eventsModel.tableName, this.id);   
+     var searched = liteDb.findById(eventsModel, this.id);   
 
      console.log("decc: " +   searched["eventDescription"])
-      that.set('description', searched[2]);
+      that.set('description', searched.eventDescription);
   }
 }
 

@@ -21,10 +21,14 @@ function pageNavigatedTo(args) {
 }
 
 function zoomInDescription(args) {
+    console.log(args.object.style.color)
+    
+    
   args.object.fontSize += 1;
 }
 
 function zoomOutDescription(args) {
+      console.log(args.object.fontSize)
   args.object.fontSize -= 1;
 }
 

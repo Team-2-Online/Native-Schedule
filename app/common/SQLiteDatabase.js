@@ -152,6 +152,39 @@ var sqliteSingleton = (function () {
 
         return result;
     };
+    
+    function _getAllFromTableWithDateAndRange(dataModel, day, month, year, range){
+        var allFields = [];
+        for (var i = 0; i < dataModel.fieldsSchema.length; i++) {
+            allFields.push(dataModel.fieldsSchema[i]["key"])
+        }
+
+        var result = [];
+        var i = 0;
+        
+        var startDay = new Date(year, month, day);
+        var lastDate = new Date();
+        lastDate.setDate(startDay.getDate() + range);  
+
+        _getInstance().each("SELECT * FROM `"+ dataModel.tableName +"` WHERE eventDay = '"+ day +"' AND eventMonth = '"+ month +"' AND eventYear = '"+ year +"'",
+        function (err, row) {
+            var currentRow = new Object();
+            var rowAsString = "";
+            rowAsString += row;
+            var columnValues = rowAsString.split(",");
+            for (var i = 0; i < allFields.length; i++) {
+                var field = "";
+                field += allFields[i];
+                currentRow[field] = columnValues[i];
+            }
+            result.push(currentRow);
+        },
+        function (err, count) {
+            console.log("DEBUG: Returned rows:", count);
+        });
+
+        return result;
+    };
 
     function _deleteById(tableName, id){
         _getInstance().execSQL("DELETE FROM `"+ tableName +"` WHERE `id` == '"+ id +"'", function(err) {
@@ -172,6 +205,7 @@ var sqliteSingleton = (function () {
         findById: _findById,
         getAllFromTable: _getAllFromTable,
         getAllFromTableWithDate: _getAllFromTableWithDate,
+        getAllFromTableWithDateAndRange: _getAllFromTableWithDateAndRange,
         deleteById: _deleteById
     };
 })();
