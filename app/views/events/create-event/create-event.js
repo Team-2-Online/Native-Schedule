@@ -32,7 +32,7 @@ function onMapReady(args) {
 
                 var marker = new mapsModule.Marker();
                 marker.position = mapsModule.Position.positionFromLatLng(myLongitude,myLatitude);
-                marker.title = "Party";
+                marker.title = "Event";
                 marker.snippet = "Here";
                 marker.userData = { index : 1};
                 mapView.addMarker(marker);

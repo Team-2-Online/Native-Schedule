@@ -24,11 +24,11 @@
 
                 <TabViewItem title="Info">
                     <TabViewItem.view>
-                        <GridLayout rows="50,*" columns="*">
+                        <GridLayout rows="50, 100, *" columns="*">
                             <TextField row="0" hint="Event title" text="{{ eventTitle }}" />
                             <TextView row="1" hint="Event description" text="{{ eventDescription }}" editable="true" height="100%" />
                             
-                            <GridLayout>
+                            <GridLayout row="2">
                                 <maps:mapView latitude="{{ latitude }}"
                                     longitude="{{ longitude }}"
                                     zoom="{{ zoom }}"
