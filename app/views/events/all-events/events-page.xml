@@ -25,14 +25,13 @@
                                 itemLoading="onItemLoading"                              
                                 separatorColor="transparent"
                                 rowHeight="45"  
-                                itemTap="eventItemTapped"                                                                
-                                >
+                                itemTap="eventItemTapped" >
                                 <ListView.itemTemplate >       
                                 <StackLayout>  
                                     <StackLayout orientation="horizontal" class="item-row" height="40" >                                     
-                                        <Label text="{{ dateFormated }}"  color="black"  verticalAlignment="bottom"  />
-                                         <Label text="   " textWrap="true" color="black"  verticalAlignment="bottom"  />
-                                        <Label text="{{ eventTitle }}" textWrap="false" class="text-center" color="black" width="100%" verticalAlignment="bottom" />
+                                         <Label text="{{ dateFormated }}"  class="{{ uiClass }}"    verticalAlignment="bottom"  />
+                                        <Label text="   " textWrap="true"  class="{{ uiClass }}" verticalAlignment="bottom"  />
+                                        <Label text="{{ eventTitle }}"    textWrap="false" class="{{ isInPast ? 'text-center event-in-past' : 'text-center' }}"  width="100%" verticalAlignment="bottom" />
                                     </StackLayout> 
                                     <Border borderRadius="" borderWidth="5" borderColor="#990099" width="100%" height="3">
                                     </Border>
@@ -40,12 +39,7 @@
                                 </ListView.itemTemplate>
                             </ListView>                               
                         
-                            </ScrollView>  
-                            <!--<FAB:fab tap="{{navigateToAddEventPage}}"
-                                row="2"
-                                icon="res://icon"
-                                rippleColor="#f1f1f1"
-                                class="fab-button" />-->
+                            </ScrollView>                             
                     </GridLayout> 
                 </TabViewItem.view>               
             </TabViewItem>
@@ -64,8 +58,9 @@
                                 <ListView.itemTemplate >       
                                 <StackLayout>  
                                     <StackLayout orientation="horizontal" class="item-row" height="40" >
-                                        <Label text="{{ eventTitle }}" textWrap="true" color="black"  verticalAlignment="bottom" />
-                                        <Label text="HUC" textWrap="true" color="black"  verticalAlignment="bottom"  />
+                                        <Label text="{{ dateFormated }}"  class="{{ uiClass }}"    verticalAlignment="bottom"  />
+                                        <Label text="   " textWrap="true"  class="{{ uiClass }}" verticalAlignment="bottom"  />
+                                        <Label text="{{ eventTitle }}"    textWrap="false" class="{{ isInPast ? 'text-center event-in-past' : 'text-center' }}"  width="100%" verticalAlignment="bottom" />
                                     </StackLayout> 
                                     <Border borderRadius="" borderWidth="5" borderColor="#990099" width="100%" height="3">
                                     </Border>
@@ -74,11 +69,7 @@
                             </ListView>                               
                         
                             </ScrollView>  
-                            <!--<FAB:fab tap="{{navigateToAddEventPage}}"
-                                row="2"
-                                icon="res://icon"
-                                rippleColor="#f1f1f1"
-                                class="fab-button" />-->
+                          
                     </GridLayout> 
                 </TabViewItem.view>
             </TabViewItem>
@@ -98,8 +89,9 @@
                                 <ListView.itemTemplate >       
                                 <StackLayout>  
                                     <StackLayout orientation="horizontal" class="item-row" height="40" >
-                                        <Label text="{{ eventTitle }}" textWrap="true" color="black"  verticalAlignment="bottom" />
-                                        <Label text="HUC" textWrap="true" color="black"  verticalAlignment="bottom"  />
+                                        <Label text="{{ dateFormated }}"  class="{{ uiClass }}"    verticalAlignment="bottom"  />
+                                        <Label text="   " textWrap="true"  class="{{ uiClass }}" verticalAlignment="bottom"  />
+                                        <Label text="{{ eventTitle }}"    textWrap="false" class="{{ isInPast ? 'text-center event-in-past' : 'text-center' }}"  width="100%" verticalAlignment="bottom" />
                                     </StackLayout> 
                                     <Border borderRadius="" borderWidth="5" borderColor="#990099" width="100%" height="3">
                                     </Border>
@@ -108,11 +100,7 @@
                             </ListView>                               
                         
                             </ScrollView>  
-                            <!--<FAB:fab tap="{{navigateToAddEventPage}}"
-                                row="2"
-                                icon="res://icon"
-                                rippleColor="#f1f1f1"
-                                class="fab-button" />-->
+                       
                     </GridLayout> 
                 </TabViewItem.view>
             </TabViewItem>
@@ -126,14 +114,14 @@
                                 itemLoading="onItemLoading" 
                                 itemTap="onItemTap"
                                 separatorColor="transparent"
-                                rowHeight="45"  
-                                                                
-                                >
+                                rowHeight="45" >
+                                
                                 <ListView.itemTemplate >       
                                 <StackLayout>  
                                     <StackLayout orientation="horizontal" class="item-row" height="40" >
-                                        <Label text="{{ eventTitle }}" textWrap="true" color="black"  verticalAlignment="bottom" />
-                                        <Label text="HUC" textWrap="true" color="black"  verticalAlignment="bottom"  />
+                                        <Label text="{{ dateFormated }}"  class="{{ uiClass }}"    verticalAlignment="bottom"  />
+                                        <Label text="   " textWrap="true"  class="{{ uiClass }}" verticalAlignment="bottom"  />
+                                        <Label text="{{ eventTitle }}"    textWrap="false" class="{{ isInPast ? 'text-center event-in-past' : 'text-center' }}"  width="100%" verticalAlignment="bottom" />
                                     </StackLayout> 
                                     <Border borderRadius="" borderWidth="5" borderColor="#990099" width="100%" height="3">
                                     </Border>

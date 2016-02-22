@@ -4,31 +4,32 @@
  var eventsModel = require(__base + "data-models/event");
  var moment = require("moment");
  var _ = require("underscore");
+ 
+ var currentDate = new Date();
 
 function all(page) {
    var result = liteDb.getAllFromTable(eventsModel);
    var sorted = _.chain(result)
-        .sortBy('eventYear')
-        .sortBy('eventMonth')
-        .sortBy('eventDay')
-        .sortBy('eventHour')
-        .sortBy('eventMinutes')
-        .map(function(item){
+        .map(function(item){            
+            var itemDate = new Date(item.eventYear, item.eventMonth, item.eventDay, item.eventHour, item.eventMinutes)
               return {
                     id: item.id,
                     eventTitle: item.eventTitle,
                     eventDescription: item.eventDescription,
-                    date: new Date(item.eventYear, item.eventMonth, item.eventDay, item.eventHour, item.eventMinutes),
+                    date: itemDate,
                     dateFormated: moment({
                        years:item.eventYear, 
                        months:item.eventMonth, 
                        date:item.eventDay, 
                        hours:item.eventHour, 
-                       minutes:item.eventMinutes}).format('DD MMM YY - HH:mm')            
+                       minutes:item.eventMinutes}).format('DD MMM YY - HH:mm'),
+                     isInPast: itemDate < currentDate,
+                     uiClass: (itemDate < currentDate) ? "event-in-past" : ""     
               }
           })
+        .sortBy('date')
         .value()
-        .reverse()
+  
             
             sorted.forEach(function(element) {
                 console.log(element.date + " - " + element.eventTitle)
@@ -40,27 +41,25 @@ function all(page) {
 function byDate(day, month, year) {
      var events = liteDb.getAllFromTableWithDate(eventsModel, day, month, year);
      var sorted = _.chain(events)
-        .sortBy('eventYear')
-        .sortBy('eventMonth')
-        .sortBy('eventDay')
-        .sortBy('eventHour')
-        .sortBy('eventMinutes')
-        .map(function(item){
+       .map(function(item){            
+            var itemDate = new Date(item.eventYear, item.eventMonth, item.eventDay, item.eventHour, item.eventMinutes)
               return {
                     id: item.id,
                     eventTitle: item.eventTitle,
                     eventDescription: item.eventDescription,
-                    date: new Date(item.eventYear, item.eventMonth, item.eventDay, item.eventHour, item.eventMinutes),
+                    date: itemDate,
                     dateFormated: moment({
                        years:item.eventYear, 
                        months:item.eventMonth, 
                        date:item.eventDay, 
                        hours:item.eventHour, 
-                       minutes:item.eventMinutes}).format('HH:MM')            
+                       minutes:item.eventMinutes}).format('HH:MM'),
+                     isInPast: itemDate < currentDate,
+                     uiClass: (itemDate < currentDate) ? "event-in-past" : ""     
               }
           })
-        .value()
-        .reverse()       
+        .sortBy('date')
+        .value();
      
     return sorted;
 }

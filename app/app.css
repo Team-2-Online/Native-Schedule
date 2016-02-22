@@ -96,3 +96,13 @@ TabViewItem{
 .text-center{
     text-align: center;
 }
+
+
+Label{
+    color: black;
+}
+
+.event-in-past{
+    color: gray;
+}
+
