@@ -63,6 +63,25 @@ function byRange(day, month, year, range) {
     return byRange;
 }
 
+function upcoming(){
+    
+    var currentDate = new Date();
+    var mom = moment(currentDate);
+    var prevDay = mom.subtract(1, 'd').toDate();
+    
+    var res = byRange(prevDay.getDate(), prevDay.getMonth(), prevDay.getFullYear(), 1)
+    
+    var upc = _.chain(res)
+        .filter(function(ev){
+            return ev.date <= currentDate
+        })
+        .sortBy('date')
+        .first(4)
+        .value(); 
+        
+        return upc;
+}
+
 function byId(id) {
     var event = liteDb.findById(eventsModel, this.id);  
     return event;
@@ -72,5 +91,6 @@ module.exports = {
   all,
   byId,
   byDate,
-  byRange
+  byRange,
+  upcoming
 };
