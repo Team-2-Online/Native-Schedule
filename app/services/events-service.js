@@ -83,8 +83,14 @@ function upcoming(){
 }
 
 function byId(id) {
-    var event = liteDb.findById(eventsModel, this.id);  
+    var event = liteDb.findById(eventsModel.tableName, id);  
     return event;
+}
+
+function deleteById(id) {
+    
+    console.log("deleting '" + id + "'")
+    liteDb.deleteById(eventsModel.tableName, id);
 }
 
 module.exports = {
@@ -92,5 +98,6 @@ module.exports = {
   byId,
   byDate,
   byRange,
-  upcoming
+  upcoming,
+  deleteById
 };

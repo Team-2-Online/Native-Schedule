@@ -24,7 +24,7 @@
                                 rowHeight="45"  
                                 itemTap="eventItemTapped" >
                                 <ListView.itemTemplate >       
-                                <StackLayout>  
+                                <StackLayout longPress="deleteSomeEvent"  id="{{id}}" >  
                                     <StackLayout orientation="horizontal" class="item-row" height="40" >                                     
                                          <Label text="{{ dateFormated }}"  class="{{ uiClass }}"    verticalAlignment="bottom"  />
                                         <Label text="   " textWrap="true"  class="{{ uiClass }}" verticalAlignment="bottom"  />
@@ -53,7 +53,7 @@
                                 separatorColor="transparent"
                                 rowHeight="45" >
                                 <ListView.itemTemplate >       
-                                <StackLayout>  
+                                <StackLayout longPress="deleteSomeEvent"  id="{{id}}" >  
                                     <StackLayout orientation="horizontal" class="item-row" height="40" >
                                         <Label text="{{ dateFormated }}"  class="{{ uiClass }}"    verticalAlignment="bottom"  />
                                         <Label text="   " textWrap="true"  class="{{ uiClass }}" verticalAlignment="bottom"  />
@@ -84,7 +84,7 @@
                                                                 
                                 >
                                 <ListView.itemTemplate >       
-                                <StackLayout>  
+                                <StackLayout longPress="deleteSomeEvent"  id="{{id}}">  
                                     <StackLayout orientation="horizontal" class="item-row" height="40" >
                                         <Label text="{{ dateFormated }}"  class="{{ uiClass }}"    verticalAlignment="bottom"  />
                                         <Label text="   " textWrap="true"  class="{{ uiClass }}" verticalAlignment="bottom"  />
@@ -114,7 +114,7 @@
                                 rowHeight="45" >
                                 
                                 <ListView.itemTemplate >       
-                                <StackLayout>  
+                                <StackLayout longPress="deleteSomeEvent"  id="{{id}}">  
                                     <StackLayout orientation="horizontal" class="item-row" height="40" >
                                         <Label text="{{ dateFormated }}"  class="{{ uiClass }}"    verticalAlignment="bottom"  />
                                         <Label text="   " textWrap="true"  class="{{ uiClass }}" verticalAlignment="bottom"  />

@@ -4,6 +4,7 @@ var frameModule = require("ui/frame");
 
 module.exports = {
 	goToAllEvents: function() {
+         console.log("in go to events");
         var navigationEntry = {
 				moduleName: "views/events/all-events/events-page",
 				backstackVisible: true,

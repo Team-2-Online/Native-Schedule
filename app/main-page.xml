@@ -1,6 +1,6 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
 <Page.actionBar>
-    <ActionBar title="  Native Scheduler" android.icon="res://icon" android.iconVisibility="always">
+    <ActionBar title="     Native Scheduler" android.icon="res://icon" android.iconVisibility="always">
     <!--<NavigationButton android.systemIcon="ic_menu_back"/>-->
     </ActionBar>
 </Page.actionBar>
@@ -56,10 +56,9 @@
                     <Label text="&#xf0a4;" horizontalAlignment="right"  class="font-awesome nav-label-right" />
                 </StackLayout>  
         </GridLayout>
-
+        
     </GridLayout>  
-  
+      
 </GridLayout>
-    
     
 </Page>

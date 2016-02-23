@@ -108,6 +108,8 @@ function pageLoaded(args) {
         var dir = args.direction;
 
         if (dir == 1) {
+            
+            console.log("should go to events");
             vmModule.mainViewModel.navigateToEventsPage()
         }
 
@@ -115,25 +117,6 @@ function pageLoaded(args) {
             vmModule.mainViewModel.navigateToNotesPage();
         }
     });
-
-    console.log("loaded")
-
-}
-
-function navigateToNotesPage() {
-    vmModule.mainViewModel.navigateToNotesPage();
-}
-
-function navigateToEventsPage() {
-    vmModule.mainViewModel.navigateToEventsPage();
-}
-
-function navigateToAddEventPage() {
-    vmModule.mainViewModel.navigateToAddEventPage();
-}
-
-function navigateToAddNotePage() {
-    vmModule.mainViewModel.navigateToAddNotePage();
 }
 
 exports.pageLoaded = pageLoaded;

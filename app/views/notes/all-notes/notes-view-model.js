@@ -19,7 +19,7 @@ var notesPageViewModel = (function (_super) {
 		var result = new observableArray.ObservableArray(resultDb);
 		return result;
 	} 
-
+  
 	notesPageViewModel.prototype.navigateToAddNotePage = navigation.goToAddNote;
     notesPageViewModel.prototype.onNavBtnTap = navigation.goToMainPage;
 	notesPageViewModel.prototype.allNotes = allNotes;
