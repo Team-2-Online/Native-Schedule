@@ -85,8 +85,15 @@ function pageLoaded(args) {
                         liteDb.deleteById(notesModel.tableName, params.id);
                         var toast = toaster.makeText("You successfully deleted this note");
                         notesWrapperImgs.removeChild(stickyImage)
-                        notesWrapperText.removeChild(label)
-                        notesWrapperText.removeChild(noteImage)
+                        
+                        if(noteImage){
+                            notesWrapperText.removeChild(noteImage)
+                        }
+                        
+                        if(label){
+                            notesWrapperText.removeChild(label)
+                        }
+                 
                         toast.show();
                     }
                 });
