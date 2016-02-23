@@ -69,14 +69,14 @@ function upcoming(){
     var mom = moment(currentDate);
     var prevDay = mom.subtract(1, 'd').toDate();
     
-    var res = byRange(prevDay.getDate(), prevDay.getMonth(), prevDay.getFullYear(), 1)
+    var res = byRange(prevDay.getDate(), prevDay.getMonth(), prevDay.getFullYear(), 2)
     
     var upc = _.chain(res)
         .filter(function(ev){
-            return ev.date <= currentDate
+            return currentDate <= ev.date
         })
         .sortBy('date')
-        .first(4)
+        .first(6)
         .value(); 
         
         return upc;

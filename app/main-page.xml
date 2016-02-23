@@ -1,62 +1,65 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
- <Page.actionBar>
-      <ActionBar title="  Native Scheduler" android.icon="res://icon" android.iconVisibility="always">
-       <!--<NavigationButton android.systemIcon="ic_menu_back"/>-->
-       </ActionBar>
-  </Page.actionBar>
-  <GridLayout  columns="*" rows="120, 50, *, 50">
+<Page.actionBar>
+    <ActionBar title="  Native Scheduler" android.icon="res://icon" android.iconVisibility="always">
+    <!--<NavigationButton android.systemIcon="ic_menu_back"/>-->
+    </ActionBar>
+</Page.actionBar>
 
-    <Label text="You have no events added for today" class="eventsCount" textWrap="true"  row="0"/>
-    <StackLayout orientation="horizontal" class="buttonContainer"  row="1">
-        <Button text="Add new" tap="{{ navigateToAddEventPage }}" />
-        <Button text="Go to events" tap="{{ navigateToEventsPage }}" />
-    </StackLayout>
+<GridLayout rows="*" columns="*" height="100%">
+  
+    <GridLayout  columns="*" rows="1*, 5*, 1*" id="main-grid" height="100%">  
     
-    
-    <GridLayout rows="*" columns="*" row="2">
-    
-    <ScrollView>
-        <GridLayout rows="*" columns="*" row="0">
-        
-            <WrapLayout orientation="horizontal" 
-                        horizontalAlignment="center"     
-                        width="100%" 
-                        height="100%" 
-                        backgroundColor="transparent"  
-                        id="notes-wrapper-imgs">                           
-                            
-            </WrapLayout>
-              
-            <WrapLayout orientation="horizontal" 
-                            horizontalAlignment="center"     
-                            width="100%" 
-                            height="100%" 
-                            backgroundColor="transparent"  
-                                   id="notes-wrapper-text"> 
-                            
-            </WrapLayout>  
-                     
+        <GridLayout rows="" columns="*, *">
+                <StackLayout col="0" orientation="horizontal">
+                    <Label text="&#xf0a5;" horizontalAlignment="left"  class="font-awesome nav-label-left" />
+                    <Label text="swipe to notes" horizontalAlignment="left"  class="nav-label-left" />
+                </StackLayout>
+                
+                <StackLayout col="1" orientation="horizontal" horizontalAlignment="right"  >
+                    <Label text="swipe to events" horizontalAlignment="right"  class="nav-label-right" />
+                    <Label text="&#xf0a4;" horizontalAlignment="right"  class="font-awesome nav-label-right" />
+                </StackLayout>  
         </GridLayout>
-    </ScrollView>
-<!--    
-    <FAB:fab tap="{{navigateToAddNotePage}}"                                 
-        icon="res://icon"
-        rippleColor="#f1f1f1"
-        class="fab-button" />-->
+        
+        <GridLayout rows="*" columns="*" row="1">    
+            <ScrollView height="100%" row="1">
+                <GridLayout rows="*" columns="*" row="0">        
+                    <WrapLayout orientation="horizontal" 
+                                horizontalAlignment="center"     
+                                width="100%" 
+                                height="100%" 
+                                backgroundColor="transparent"  
+                                id="notes-wrapper-imgs">                           
+                                    
+                    </WrapLayout>
+                    
+                    <WrapLayout orientation="horizontal" 
+                                horizontalAlignment="center"     
+                                width="100%" 
+                                height="100%" 
+                                backgroundColor="transparent"  
+                                id="notes-wrapper-text"> 
+                                    
+                    </WrapLayout>                       
+                </GridLayout>
+            </ScrollView>
+        </GridLayout>
 
-    </GridLayout>
+         <GridLayout rows="" columns="*, *" row="2">
+                <StackLayout col="0" orientation="horizontal">
+                    <Label text="&#xf0a5;" horizontalAlignment="left"  class="font-awesome nav-label-left" />
+                    <Label text="swipe to notes" horizontalAlignment="left"  class="nav-label-left" />
+                </StackLayout>
+                
+                <StackLayout col="1" orientation="horizontal" horizontalAlignment="right"  >
+                    <Label text="swipe to events" horizontalAlignment="right"  class="nav-label-right" />
+                    <Label text="&#xf0a4;" horizontalAlignment="right"  class="font-awesome nav-label-right" />
+                </StackLayout>  
+        </GridLayout>
 
-    <!--<GridLayout columns="*, *" rows="*, *"  row="2" style.backgroundColor="white" >
-        <Image row="0" col="0" src="res://note" stretch="fill" />
-            <Image row="1" col="1" src="res://note" stretch="fill" />
-        <Image row="1" col="0" src="res://note" stretch="fill"/>
-        <Image row="0" col="1" src="res://note" stretch="fill"/>
-    </GridLayout>-->
-
-    <StackLayout height="50" orientation="horizontal" class="buttonContainer" backgroundColor="white"  row="3">
-        <Button text="New Note" tap="{{ navigateToAddNotePage }}" />
-        <Button text="Go to notes" tap="{{ navigateToNotesPage }}" />
-     </StackLayout>
-
-  </GridLayout>
+    </GridLayout>  
+  
+</GridLayout>
+    
+    
 </Page>

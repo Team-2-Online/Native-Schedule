@@ -11,8 +11,7 @@ function pageLoaded(args) {
 }
 
 function eventItemTapped(args) {
-    
-    console.log("tap huc")
+   
   let page = args.object.page;
   let vm = page.bindingContext;
   let index = args.index;

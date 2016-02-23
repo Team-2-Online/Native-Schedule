@@ -20,7 +20,7 @@ module.exports = {
 	goToAddEvent: function() {
         var navigationEntry = {
 				moduleName: "views/events/create-event/create-event",
-				backstackVisible: false,
+				backstackVisible: true,
 				animated: true,
 				transition: {
 					name: "flip",
@@ -46,7 +46,7 @@ module.exports = {
 	goToAddNote: function() {
         var navigationEntry = {
 				moduleName: "views/notes/create-note/create-note",
-				backstackVisible: false,
+				backstackVisible: true,
 				animated: true,
 				transition: {
 					name: "flip",
@@ -56,12 +56,10 @@ module.exports = {
 			};
 		frameModule.topmost().navigate(navigationEntry);
 	},
-    goToMainPage: function() {
-        console.log("going na main-a si")
-        
+    goToMainPage: function() {        
         var navigationEntry = {
 				moduleName: "main-page",
-				backstackVisible: false,
+				backstackVisible: true,
 				animated: true,
 				transition: {
 					name: "flip",
@@ -71,4 +69,18 @@ module.exports = {
 			};
 		frameModule.topmost().navigate(navigationEntry);
 	},
+    goToEventDetails: function(event) {
+        var navigationEntry = {
+				moduleName: "views/events/event-details/event-details",
+				backstackVisible: true,
+				animated: true,
+				transition: {
+					name: "flip",
+                    duration:380,
+                    curve: "easeIn"
+				},
+                context: event
+			};
+		frameModule.topmost().navigate(navigationEntry);
+	}
 };
