@@ -17,12 +17,7 @@ function all(page) {
                     eventTitle: item.eventTitle,
                     eventDescription: item.eventDescription,
                     date: itemDate,
-                    dateFormated: moment({
-                       years:item.eventYear, 
-                       months:item.eventMonth, 
-                       date:item.eventDay, 
-                       hours:item.eventHour, 
-                       minutes:item.eventMinutes}).format('DD MMM YY - HH:mm'),
+                    dateFormated: moment(itemDate).format('DD MMM YY - HH:mm'),
                      isInPast: itemDate < currentDate,
                      uiClass: (itemDate < currentDate) ? "event-in-past" : ""     
               }
@@ -43,12 +38,7 @@ function byDate(day, month, year) {
                     eventTitle: item.eventTitle,
                     eventDescription: item.eventDescription,
                     date: itemDate,
-                    dateFormated: moment({
-                       years:item.eventYear, 
-                       months:item.eventMonth, 
-                       date:item.eventDay, 
-                       hours:item.eventHour, 
-                       minutes:item.eventMinutes}).format('HH:MM'),
+                    dateFormated: moment(itemDate).format('HH:mm'),
                      isInPast: itemDate < currentDate,
                      uiClass: (itemDate < currentDate) ? "event-in-past" : ""     
               }

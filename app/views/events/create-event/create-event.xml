@@ -17,6 +17,16 @@
                         <StackLayout>
                             <DatePicker day="{{ eventDay }}" month="{{ eventMonth }}" year="{{ eventYear }}"></DatePicker>
                             <TimePicker hour="{{ eventHour }}" minute="{{ eventMinutes }}"></TimePicker>
+                            <StackLayout class="text-center">
+                                <Label text="Notify me 5 mins earlier" width="100%"  class="text-center"/>   
+                                
+                                <WrapLayout orientation="horizontal" itemWidth="" itemHeight="">
+                                    <Label text="NO" width="42.5%"  class="text-center"/>   
+                                    <Switch checked="{{ alarmOn }}" width="15%" color="black" />  
+                                    <Label text="YES" width="42.5%"  class="text-center"/>   
+                                </WrapLayout>                         
+                                                       
+                            </StackLayout>  
                         </StackLayout>
                     </TabViewItem.view>
                 </TabViewItem>

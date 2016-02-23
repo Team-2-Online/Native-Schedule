@@ -11,8 +11,9 @@ var liteDb = require(__base + "common/SQLiteDatabase");
 var navigation = require(__base + "common/navigation");
 var validator = require("../../../common/validation");
 var Toast = require('nativescript-toast');
+var notificator = require(__base + "common/notificator");
 
-var pageModules = (function() {
+var pageModules = (function () {
 
     var currentDate = new Date();
 
@@ -20,53 +21,54 @@ var pageModules = (function() {
         eventTitle: "",
         eventDescription: "",
         eventDay: currentDate.getDate(),
-        eventMonth: currentDate.getMonth(),
-        eventYear:  currentDate.getFullYear(),
-        eventHour:  currentDate.getHours(),
-        eventMinutes:  currentDate.getMinutes(),
+        eventMonth: currentDate.getMonth() + 1,
+        eventYear: currentDate.getFullYear(),
+        eventHour: currentDate.getHours(),
+        eventMinutes: currentDate.getMinutes(),
+        alarmOn: false
     });
-
+    
     var topmost;
 
     var pageModules = {
 
-        onLoaded: function(args) {
+        onLoaded: function (args) {
             var page = args.object;
 
+            console.log(currentDate.getUTCMonth());
 
             page.bindingContext = model;
             model.eventTitle = "";
-            model.eventDescription = "";            
+            model.eventDescription = "";
 
             topmost = frameModule.topmost();
         },
-        saveEvent: function() {
+        saveEvent: function () {
             var record = {
-                eventTitle: "'"+ model.eventTitle +"'",
-                eventDescription: "'"+ model.eventDescription +"'",
+                eventTitle: "'" + model.eventTitle + "'",
+                eventDescription: "'" + model.eventDescription + "'",
                 eventDay: model.eventDay,
-                eventMonth: model.eventMonth,
+                eventMonth: model.eventMonth - 1,
                 eventYear: model.eventYear,
                 eventHour: model.eventHour,
                 eventMinutes: model.eventMinutes
             };
-            
-            if(validator.checkLenght(record["eventTitle"], 5, 33) && validator.checkLenght(record["eventDescription"], 5, 258)){
-                if(validator.validateTitle(record["eventTitle"]) && validator.validateDescription(record["eventDescription"])){
-                liteDb.insertRecord(eventsModel.tableName, record);
-                navigation.goToAllEvents();
-                var toast = Toast.makeText("You succesfully added a new event!");
-                toast.show();
-                
-            // TODO: do something with the data
-            //console.log(JSON.stringify(model, null, 4));
-            //console.log(model.eventHour)
-            //console.log(model.eventMinutes)
-                } else{
+
+            if (validator.checkLenght(record["eventTitle"], 5, 33) && validator.checkLenght(record["eventDescription"], 5, 258)) {
+                if (validator.validateTitle(record["eventTitle"]) && validator.validateDescription(record["eventDescription"])) {
+                    liteDb.insertRecord(eventsModel.tableName, record);
+                    if(model.alarmOn){
+                         notificator.doScheduleNotification(record);
+                    }                   
+                   
+                    navigation.goToAllEvents();
+                    var toast = Toast.makeText("You succesfully added a new event!");
+                    toast.show(); 
+                } else {
                     var errToastIllegal = Toast.makeText("The title or the description contaiin illegal symbols");
                     errToastIllegal.show();
                 }
-            } else{
+            } else {
                 var errLenToast = Toast.makeText("The title should be long between 3 and 32 symbols and the description - between 3 and 256");
                 errLenToast.show();
             }

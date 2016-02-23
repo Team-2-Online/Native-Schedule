@@ -60,7 +60,7 @@ function pageLoaded(args) {
                 noteImage.marginLeft = halfMargin;       
                 noteImage.stretch = "fill";               
                 noteImage.width = width - margin;
-                noteImage.height = width -margin;
+                noteImage.height = width - margin;
                 noteImage.opacity = 0.9;
                 notesWrapperText.addChild(noteImage)
             }
