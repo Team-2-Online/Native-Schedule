@@ -81,3 +81,4 @@ var pageModules = (function () {
 exports.onLoaded = pageModules.onLoaded;
 exports.indexChange = pageModules.indexChange;
 exports.saveEvent = pageModules.saveEvent;
+exports.onNavBtnTap = navigation.goToAllEvents;

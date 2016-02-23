@@ -72,11 +72,12 @@ var pageViewModel = (function (_super) {
         return result;
     }
 
+    pageViewModel.prototype.onNavBtnTap = navigation.goToMainPage;
 	pageViewModel.prototype.navigateToAddEventPage = navigation.goToAddEvent;
 	pageViewModel.prototype.allEvents = allEvents;    
     pageViewModel.prototype.eventsToday = eventsToday;
     pageViewModel.prototype.eventsTomorrow = eventsTomorrow;
-    pageViewModel.prototype.eventsNexWeek = eventsNexWeek;
+    pageViewModel.prototype.eventsNexWeek = eventsNexWeek
 
 	return pageViewModel;
 })(observable.Observable);

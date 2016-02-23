@@ -1,11 +1,8 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded"
     xmlns:FAB="nativescript-floatingactionbutton">
     <Page.actionBar>
-        <ActionBar title="Events">
-            <!--<ActionBar.actionItems>
-                <ActionItem ios.systemIcon="4" android.systemIcon = "ic_menu_add" tap="{{navigateToAddEventPage}}" />
-            </ActionBar.actionItems>-->
-            <NavigationButton android.systemIcon="ic_menu_back"/>
+        <ActionBar title="Events">    
+             <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" tap="{{ onNavBtnTap }}"/>
         </ActionBar>
     </Page.actionBar>
     <GridLayout rows="" columns="">

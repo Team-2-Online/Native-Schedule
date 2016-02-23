@@ -1,6 +1,7 @@
 'use strict';
 
 let vm = require('./event-details-view-model');
+var navigation = require(__base + "common/navigation");
 
 // let services = require('../../services');
 
@@ -35,5 +36,6 @@ module.exports = {
   pageLoaded,
   pageNavigatedTo,
   zoomInDescription,
-  zoomOutDescription
+  zoomOutDescription,
+  onNavBtnTap: navigation.goToAllEvents
 };

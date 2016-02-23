@@ -86,3 +86,4 @@ exports.onLoaded = pageModules.onLoaded;
 exports.indexChange = pageModules.indexChange;
 exports.saveNote = pageModules.saveNote;
 exports.addImageNote = pageModules.addImageNote;
+exports.onNavBtnTap = navigation.goToAllNotes;

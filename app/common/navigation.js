@@ -55,5 +55,20 @@ module.exports = {
 				},
 			};
 		frameModule.topmost().navigate(navigationEntry);
-	}
+	},
+    goToMainPage: function() {
+        console.log("going na main-a si")
+        
+        var navigationEntry = {
+				moduleName: "main-page",
+				backstackVisible: false,
+				animated: true,
+				transition: {
+					name: "flip",
+                    duration:380,
+                    curve: "easeIn"
+				},
+			};
+		frameModule.topmost().navigate(navigationEntry);
+	},
 };

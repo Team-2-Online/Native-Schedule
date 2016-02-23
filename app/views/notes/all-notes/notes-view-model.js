@@ -21,7 +21,7 @@ var notesPageViewModel = (function (_super) {
 	} 
 
 	notesPageViewModel.prototype.navigateToAddNotePage = navigation.goToAddNote;
-
+    notesPageViewModel.prototype.onNavBtnTap = navigation.goToMainPage;
 	notesPageViewModel.prototype.allNotes = allNotes;
 
 	return notesPageViewModel;

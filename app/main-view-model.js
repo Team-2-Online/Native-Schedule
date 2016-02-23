@@ -1,6 +1,10 @@
 'use strict'
+
 let observable = require("data/observable");
+var observableArray = require("data/observable-array");
 let frameModule = require('ui/frame');
+var eventsService = require(__base + "services/events-service");
+
 
 //Example use of DB
 var liteDb = require(__base + "common/SQLiteDatabase");
@@ -25,6 +29,12 @@ var HomePageModel = (function (_super) {
 		else {
 			this.set("message", this.counter + " taps left");
 		}
+	};
+    
+    HomePageModel.prototype.upcomingEvents = function () {
+        var resultDb = eventsService.upcoming();
+		var result = new observableArray.ObservableArray(resultDb);
+		return result;
 	};
 
 	HomePageModel.prototype.navigateToNotesPage = function(){
@@ -86,7 +96,7 @@ var HomePageModel = (function (_super) {
 			};
 
 			frameModule.topmost().navigate(navigationEntry);
-		};
+		};        
 
 	return HomePageModel;
 })(observable.Observable);

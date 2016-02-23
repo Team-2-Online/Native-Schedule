@@ -3,7 +3,7 @@
 
     <Page.actionBar>
         <ActionBar title="Add new event" >
-            <NavigationButton android.systemIcon="ic_menu_back"/>
+            <NavigationButton android.systemIcon="ic_menu_back" tap="onNavBtnTap"/>
         </ActionBar>
     </Page.actionBar>
     <GridLayout rows="*" columns="*">
